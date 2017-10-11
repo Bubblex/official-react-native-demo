@@ -6,20 +6,13 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
+  AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component<{}> {
+export default class MyApp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -27,10 +20,11 @@ export default class App extends Component<{}> {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit App.js
+          To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
-          {instructions}
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
         </Text>
       </View>
     );
@@ -55,3 +49,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+AppRegistry.registerComponent('MyApp', () => MyApp);
