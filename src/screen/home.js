@@ -7,7 +7,7 @@ import {
     Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'
-import { connect } from 'dva-core'
+import { connect } from 'dva/mobile'
 
 class Welcome extends Component {
     static navigationOptions = {
