@@ -3,7 +3,8 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 
@@ -11,7 +12,9 @@ class Welcome extends Component {
     static navigationOptions = {
         title: 'Welcome'
     };
+
     render() {
+        const { navigate } = this.props.navigation
         return (
         <View style={styles.container}>
             <Text style={styles.welcome}>
@@ -24,6 +27,9 @@ class Welcome extends Component {
                 Press Cmd+R to reload,{'\n'}
                 Cmd+D or shake for dev menu
             </Text>
+            <Button  
+                  onPress={() => navigate('User')}
+            >个人中心</Button>
         </View>
         );
     }
