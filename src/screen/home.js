@@ -28,8 +28,9 @@ class Welcome extends Component {
                 Cmd+D or shake for dev menu
             </Text>
             <Button  
-                  onPress={() => navigate('User')}
-            >个人中心</Button>
+                title='个人中心'
+                onPress={() => navigate('User')}
+            />
         </View>
         );
     }

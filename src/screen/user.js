@@ -16,11 +16,12 @@ class UserScreen extends React.Component {
   
     render() {
         return (
-          <View style={styles.container}>
-              <Text>Hello world!</Text>
-              <Button  
-                  onPress={this._handleButtonPress}
-              >alert</Button>
+            <View style={styles.container}>
+                <Text>Hello world!</Text>
+                <Button  
+                    title='alert'
+                    onPress={this._handleButtonPress}
+                />
           </View>
         )
     }
