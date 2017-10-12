@@ -30,7 +30,7 @@ class Home extends Component {
       <View style={styles.container}>
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
         <Text>{this.props.username}</Text>
-        <Button onClick={this.fetchTest}>Fetch TEST</Button>
+        <Button onClick={this.fetchTest}>Fetch Test</Button>
       </View>
     )
   }
