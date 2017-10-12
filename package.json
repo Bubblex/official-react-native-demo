@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "dva": "^1.2.1",
-    "react": "16.0.0-alpha.6",
+    "react": "15.4.*",
+    "react-dom": "15.4.*",
     "react-native": "0.44.3",
     "react-navigation": "^1.0.0-beta.13"
   },
