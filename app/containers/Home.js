@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Button } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
+import { Button } from 'antd-mobile'
 import { connect } from 'react-redux'
 
 import { NavigationActions } from '../utils'
@@ -23,7 +24,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Goto Detail" onPress={this.gotoDetail} />
+        <Button onClick={this.gotoDetail}>Goto Detail</Button>
       </View>
     )
   }
