@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import dva from 'dva/mobile'
+import dva from 'dva-core'
 
 import Welcome from './screen/home'
 import UserScreen from './screen/user'

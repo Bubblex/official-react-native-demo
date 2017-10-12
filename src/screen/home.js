@@ -7,7 +7,6 @@ import {
     Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'
-import { connect } from 'dva/mobile'
 
 class Welcome extends Component {
     static navigationOptions = {
@@ -56,6 +55,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default connect((state) => {
-    return state
-})(Welcome)
+export default Welcome
