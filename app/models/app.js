@@ -1,11 +1,13 @@
 import { createAction, NavigationActions } from '../utils'
 import * as authService from '../services/auth'
+import { testFetch } from '../services/auth'
 
 export default {
   namespace: 'app',
   state: {
     fetching: false,
     login: false,
+    username: 'jiangxiao',
   },
   reducers: {
     loginStart(state, { payload }) {
@@ -13,6 +15,13 @@ export default {
     },
     loginEnd(state, { payload }) {
       return { ...state, ...payload, fetching: false }
+    },
+
+    changeUsername(state, { username }) {
+      return {
+          ...state,
+          username,
+      }
     },
   },
   effects: {
@@ -29,5 +38,18 @@ export default {
       }
       yield put(createAction('loginEnd')({ login }))
     },
+
+    *fetchTest({ payload }, { call, put }) {
+      const {
+          response: {
+              message,
+          },
+      } = yield call(testFetch, payload)
+
+      yield put({
+          type: 'changeUsername',
+          username: message,
+      })
+  },
   },
 }

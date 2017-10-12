@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image } from 'react-native'
+import { StyleSheet, View, Image, Text } from 'react-native'
 import { Button } from 'antd-mobile'
 import { connect } from 'react-redux'
 
@@ -21,10 +21,16 @@ class Home extends Component {
     this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
   }
 
+  fetchTest = () => {
+    this.props.dispatch({type: 'app/fetchTest'})
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
+        <Text>{this.props.user.username}</Text>
+        <Button onClick={this.fetchTest}>Fetch TEST</Button>
       </View>
     )
   }
