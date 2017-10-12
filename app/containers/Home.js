@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { NavigationActions } from '../utils'
 
-@connect()
+@connect(({ app }) => ({ ...app }))
 class Home extends Component {
   static navigationOptions = {
     title: 'Home',
