@@ -10,11 +10,12 @@ class Home extends Component {
   static navigationOptions = {
     title: 'Home',
     tabBarLabel: 'Home',
-    tabBarIcon: ({ focused, tintColor }) =>
+    tabBarIcon: ({ focused, tintColor }) => (
       <Image
         style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
         source={require('../images/house.png')}
-      />,
+      />
+    ),
   }
 
   gotoDetail = () => {
@@ -22,7 +23,11 @@ class Home extends Component {
   }
 
   fetchTest = () => {
-    this.props.dispatch({type: 'app/fetchTest'})
+    this.props.dispatch({ type: 'app/fetchTest' })
+  }
+
+  linkExample = () => {
+    this.props.dispatch(NavigationActions.navigate({ routeName: 'Example' }))
   }
 
   render() {
@@ -31,6 +36,7 @@ class Home extends Component {
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
         <Text>{this.props.username}</Text>
         <Button onClick={this.fetchTest}>Fetch Test</Button>
+        <Button onClick={this.linkExample}>link to example</Button>
       </View>
     )
   }
