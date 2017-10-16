@@ -16,8 +16,10 @@ import Detail from './containers/Detail'
 import Example from './containers/Example'
 
 const HomeNavigator = TabNavigator(
+  // 底部菜单
   {
     Home: { screen: Home },
+    Example: { screen: Example },
     Account: { screen: Account },
   },
   {
@@ -33,7 +35,6 @@ const MainNavigator = StackNavigator(
   {
     HomeNavigator: { screen: HomeNavigator },
     Detail: { screen: Detail },
-    Example: { screen: Example },
   },
   {
     headerMode: 'float',

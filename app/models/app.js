@@ -1,6 +1,5 @@
 import { createAction, NavigationActions } from '../utils'
 import * as authService from '../services/auth'
-import { testFetch } from '../services/auth'
 
 export default {
   namespace: 'app',
@@ -40,16 +39,12 @@ export default {
     },
 
     *fetchTest({ payload }, { call, put }) {
-      const {
-          response: {
-              message,
-          },
-      } = yield call(testFetch, payload)
+      const { response: { message } } = yield call(authService.testFetch, payload)
 
       yield put({
-          type: 'changeUsername',
-          username: message,
+        type: 'changeUsername',
+        username: message,
       })
-  },
+    },
   },
 }

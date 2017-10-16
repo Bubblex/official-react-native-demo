@@ -8,8 +8,8 @@ import { NavigationActions } from '../utils'
 @connect(({ app }) => ({ ...app }))
 class Home extends Component {
   static navigationOptions = {
-    title: 'Home',
-    tabBarLabel: 'Home',
+    title: '主页',
+    tabBarLabel: '主页',
     tabBarIcon: ({ focused, tintColor }) => (
       <Image
         style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}

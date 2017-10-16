@@ -72,14 +72,14 @@ function parseJSON(response) {
  * @return {function} 验证函数
  */
 function checkToken(isCheckToken) {
-    return (response) => {
-        if (isCheckToken && !auth.getToken() && flag) {
-            Toast.warn(response.message, 1.5, () => {
-                flag = true
-            })
-        }
-        return response
+  return response => {
+    if (isCheckToken && flag) {
+      Toast.warn(response.message, 1.5, () => {
+        flag = true
+      })
     }
+    return response
+  }
 }
 
 /**
