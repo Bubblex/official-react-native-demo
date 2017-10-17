@@ -7,7 +7,7 @@ import { NavigationActions } from '../utils'
 
 @connect(({ app }) => ({ ...app }))
 class Home extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({screenProps}) => ({
     title: '主页',
     tabBarLabel: '主页',
     tabBarIcon: ({ focused, tintColor }) => (
@@ -16,7 +16,8 @@ class Home extends Component {
         source={require('../images/house.png')}
       />
     ),
-  }
+    headerStyle:{backgroundColor:screenProps?screenProps.themeColor:'#4ECBFC'},
+  })
 
   gotoDetail = () => {
     this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))

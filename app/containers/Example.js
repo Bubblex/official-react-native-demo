@@ -5,7 +5,7 @@ import { Tag } from 'antd-mobile'
 
 @connect(state => state)
 class Example extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({screenProps}) =>({
     title: '示例',
     tabBarLabel: '示例',
     tabBarIcon: ({ focused, tintColor }) =>
@@ -13,7 +13,11 @@ class Example extends Component {
         style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
         source={require('../images/person.png')}
       />,
-  }
+      headerStyle:{backgroundColor:screenProps?screenProps.themeColor:'#4ECBFC'},
+      headerTitleStyle: {
+        alignSelf: 'center',
+      }
+  }) 
   render() {
     return (
       <View style={styles.container}>

@@ -6,7 +6,7 @@ import { NavigationActions } from '../utils'
 
 @connect()
 class Account extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({screenProps})=>({
     title: '个人中心',
     tabBarLabel: '个人中心',
     tabBarIcon: ({ focused, tintColor }) =>
@@ -14,7 +14,8 @@ class Account extends Component {
         style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
         source={require('../images/person.png')}
       />,
-  }
+    headerStyle:{backgroundColor:screenProps?screenProps.themeColor:'#4ECBFC'},
+  })
 
   gotoLogin = () => {
     this.props.dispatch(NavigationActions.navigate({ routeName: 'Login' }))

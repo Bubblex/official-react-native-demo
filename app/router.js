@@ -115,7 +115,7 @@ class Router extends PureComponent {
   render() {
     const { dispatch, router } = this.props
     const navigation = addNavigationHelpers({ dispatch, state: router })
-    return <AppNavigator navigation={navigation} />
+    return <AppNavigator navigation={navigation} screenProps={{themeColor:'lightblue'}}/>
   }
 }
 
