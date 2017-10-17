@@ -9,7 +9,13 @@ export const login = async () => {
 
 export async function testFetch(params) {
   return request(API.TEST_API, {
-      body: JSON.stringify(params),
+    body: JSON.stringify(params),
   })
 }
 
+// 1.1.1 首页宫格菜单
+export async function fetchBanner(params) {
+  return request(API.BANNER, {
+    body: JSON.stringify(params),
+  })
+}

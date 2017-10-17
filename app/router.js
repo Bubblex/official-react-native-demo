@@ -15,8 +15,8 @@ import Account from './containers/Account'
 import Detail from './containers/Detail'
 import Example from './containers/Example'
 
+// 底部标签栏
 const HomeNavigator = TabNavigator(
-  // 底部菜单
   {
     Home: { screen: Home },
     Example: { screen: Example },
@@ -31,6 +31,7 @@ const HomeNavigator = TabNavigator(
   }
 )
 
+// 顶部导航条
 const MainNavigator = StackNavigator(
   {
     HomeNavigator: { screen: HomeNavigator },
@@ -79,7 +80,7 @@ const AppNavigator = StackNavigator(
   }
 )
 
-function getCurrentScreen(navigationState) {
+export function getCurrentScreen(navigationState) {
   if (!navigationState) {
     return null
   }
@@ -115,7 +116,13 @@ class Router extends PureComponent {
   render() {
     const { dispatch, router } = this.props
     const navigation = addNavigationHelpers({ dispatch, state: router })
-    return <AppNavigator navigation={navigation} screenProps={{themeColor:'lightblue'}}/>
+    
+    return (
+      <AppNavigator
+        navigation={navigation}
+        screenProps={{ themeColor: 'lightblue' }}
+      />
+    )
   }
 }
 

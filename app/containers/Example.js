@@ -5,19 +5,23 @@ import { Tag } from 'antd-mobile'
 
 @connect(state => state)
 class Example extends Component {
-  static navigationOptions = ({screenProps}) =>({
+  static navigationOptions = ({ screenProps }) => ({
     title: '示例',
     tabBarLabel: '示例',
-    tabBarIcon: ({ focused, tintColor }) =>
+    tabBarIcon: ({ focused, tintColor }) => (
       <Image
         style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
         source={require('../images/person.png')}
-      />,
-      headerStyle:{backgroundColor:screenProps?screenProps.themeColor:'#4ECBFC'},
-      headerTitleStyle: {
-        alignSelf: 'center',
-      }
-  }) 
+      />
+    ),
+    headerStyle: {
+      backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
+    },
+    headerTitleStyle: {
+      alignSelf: 'center',
+    },
+  })
+
   render() {
     return (
       <View style={styles.container}>
@@ -32,9 +36,9 @@ class Example extends Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
     width: 32,

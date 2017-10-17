@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image, Text } from 'react-native'
-import { Button } from 'antd-mobile'
+import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
 
 import { NavigationActions } from '../utils'
 
 @connect(({ app }) => ({ ...app }))
 class Home extends Component {
-  static navigationOptions = ({screenProps}) => ({
+  static navigationOptions = ({ screenProps }) => ({
     title: '主页',
     tabBarLabel: '主页',
     tabBarIcon: ({ focused, tintColor }) => (
@@ -16,7 +16,9 @@ class Home extends Component {
         source={require('../images/house.png')}
       />
     ),
-    headerStyle:{backgroundColor:screenProps?screenProps.themeColor:'#4ECBFC'},
+    headerStyle: {
+      backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
+    },
   })
 
   gotoDetail = () => {
@@ -34,6 +36,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Grid data={this.props.banner}/>
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
         <Text>{this.props.username}</Text>
         <Button onClick={this.fetchTest}>Fetch Test</Button>

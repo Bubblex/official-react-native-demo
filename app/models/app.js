@@ -7,6 +7,8 @@ export default {
     fetching: false,
     login: false,
     username: 'jiangxiao',
+
+    banner: [],
   },
   reducers: {
     loginStart(state, { payload }) {
@@ -18,8 +20,15 @@ export default {
 
     changeUsername(state, { username }) {
       return {
-          ...state,
-          username,
+        ...state,
+        username,
+      }
+    },
+
+    saveBanner(state, { banner }) {
+      return {
+        ...state,
+        banner,
       }
     },
   },
@@ -39,12 +48,38 @@ export default {
     },
 
     *fetchTest({ payload }, { call, put }) {
-      const { response: { message } } = yield call(authService.testFetch, payload)
-
+      const { response: { message } } = yield call(
+        authService.testFetch,
+        payload
+      )
+      
       yield put({
         type: 'changeUsername',
         username: message,
       })
     },
+
+    // 1.1.1 首页宫格菜单
+    *fetchBanner({ payload }, { call, put }) {
+      const { response: { data, status } } = yield call(
+        authService.fetchBanner,
+        payload
+      )
+
+      if (status === 1) {
+        
+        yield put({
+          type: 'saveBanner',
+          banner: data.banner,
+        })
+      }
+    },
+  },
+  subscriptions: {
+      setup({ dispatch }) {
+          dispatch({
+              type: 'fetchBanner',
+          })
+      },
   },
 }
