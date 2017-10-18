@@ -118,7 +118,7 @@ class Router extends PureComponent {
     const navigation = addNavigationHelpers({ dispatch, state: router })
 
     const currentScreen = getCurrentScreen(this.props.router)
-    if(currentScreen === 'Example') {
+    if (currentScreen === 'Example') {
       console.log('example')
     }
 

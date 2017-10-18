@@ -9,4 +9,7 @@ export default {
 
   // 1.1.1 首页宫格菜单
   BANNER: `${DOMIN}/banner`,
+
+  // 2.1.1 登录
+  LOGIN: `${DOMIN}/login`,
 }

@@ -19,3 +19,10 @@ export async function fetchBanner(params) {
     body: JSON.stringify(params),
   })
 }
+
+// 2.1.1 登录
+export async function fetchLogin(params) {
+  return request(API.LOGIN, {
+    body: JSON.stringify(params),
+  })
+}

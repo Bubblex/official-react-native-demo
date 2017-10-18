@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { NavigationActions } from '../utils'
 
-@connect((state) => (state))
+@connect(state => state)
 class Home extends Component {
   static navigationOptions = ({ screenProps }) => ({
     title: '主页',
@@ -34,9 +34,11 @@ class Home extends Component {
   }
 
   render() {
+    const { app: { banner } } = this.props
+
     return (
       <View style={styles.container}>
-        <Grid data={this.props.app.banner} />
+        <Grid data={banner} />
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
         <Text>{this.props.app.username}</Text>
         <Button onClick={this.fetchTest}>Fetch Test</Button>
@@ -49,12 +51,18 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
   },
   icon: {
     width: 32,
     height: 32,
+  },
+  banner: {
+    width: '100%',
+    height: 100,
+  },
+  item: {
+    height: 20,
   },
 })
 

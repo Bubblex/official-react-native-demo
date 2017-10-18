@@ -7,10 +7,11 @@ import Router from './router'
 
 import appModel from './models/app'
 import routerModel from './models/router'
+import accountModel from './models/account'
 
 const app = dva({
   initialState: {},
-  models: [appModel, routerModel],
+  models: [appModel, routerModel, accountModel],
   extraEnhancers: [autoRehydrate()],
   onError(e) {
     console.log('onError', e)

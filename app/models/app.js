@@ -52,7 +52,7 @@ export default {
         authService.testFetch,
         payload
       )
-      
+
       yield put({
         type: 'changeUsername',
         username: message,
@@ -67,7 +67,6 @@ export default {
       )
 
       if (status === 1) {
-        
         yield put({
           type: 'saveBanner',
           banner: data.banner,
@@ -76,10 +75,10 @@ export default {
     },
   },
   subscriptions: {
-      setup({ dispatch }) {
-          dispatch({
-              type: 'fetchBanner',
-          })
-      },
+    setup({ dispatch }) {
+      dispatch({
+        type: 'fetchBanner',
+      })
+    },
   },
 }

@@ -27,7 +27,7 @@ class Account extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Goto Login" onPress={this.gotoLogin} />
+        <Button title="去登录" onPress={this.gotoLogin} />
       </View>
     )
   }
