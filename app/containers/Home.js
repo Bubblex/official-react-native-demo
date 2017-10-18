@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { NavigationActions } from '../utils'
 
-@connect(({ app }) => ({ ...app }))
+@connect((state) => (state))
 class Home extends Component {
   static navigationOptions = ({ screenProps }) => ({
     title: '主页',
@@ -36,9 +36,9 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Grid data={this.props.banner}/>
+        <Grid data={this.props.app.banner} />
         <Button onClick={this.gotoDetail}>Goto Detail</Button>
-        <Text>{this.props.username}</Text>
+        <Text>{this.props.app.username}</Text>
         <Button onClick={this.fetchTest}>Fetch Test</Button>
         <Button onClick={this.linkExample}>link to example</Button>
       </View>
