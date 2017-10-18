@@ -1,4 +1,9 @@
+import fetch from 'dva/fetch'
+import Cookies from 'js-cookie'
+import { browserHistory } from 'dva/router'
+
 import { Toast } from 'antd-mobile'
+import ROUTES from '../config/routes'
 
 /**
  * 记录请求次数
@@ -24,13 +29,13 @@ let flag = true
  * @property {boolean} isCheckToken 是否验证 token
  */
 const DEFAULT = {
-  mode: 'cors',
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  checkToken: false,
-  credentials: 'include',
+    mode: 'cors',
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    checkToken: false,
+    credentials: 'include',
 }
 
 /**
@@ -40,19 +45,19 @@ const DEFAULT = {
  * @return {object} 响应参数或 error
  */
 function checkStatus(response) {
-  requestCount -= 1
+    requestCount -= 1
 
-  if (requestCount === 0) {
-    Toast.hide()
-  }
+    if (requestCount === 0) {
+        Toast.hide()
+    }
 
-  if (response.status >= 200 && response.status < 300) {
-    return response
-  }
+    if (response.status >= 200 && response.status < 300) {
+        return response
+    }
 
-  const error = new Error(response.statusText)
-  error.response = response
-  throw error
+    const error = new Error(response.statusText)
+    error.response = response
+    throw error
 }
 
 /**
@@ -62,7 +67,7 @@ function checkStatus(response) {
  * @return {object} 格式化后的响应参数
  */
 function parseJSON(response) {
-  return response.json()
+    return response.json()
 }
 
 /**
@@ -72,14 +77,15 @@ function parseJSON(response) {
  * @return {function} 验证函数
  */
 function checkToken(isCheckToken) {
-  return response => {
-    if (isCheckToken && flag) {
-      Toast.warn(response.message, 1.5, () => {
-        flag = true
-      })
+    return (response) => {
+        if (isCheckToken && flag) {
+            Toast.warn(response.message, 1.5, () => {
+                flag = true
+                browserHistory.push(ROUTES.LOGIN)
+            })
+        }
+        return response
     }
-    return response
-  }
 }
 
 /**
@@ -89,26 +95,32 @@ function checkToken(isCheckToken) {
  * @return {object} 响应参数
  */
 function showMessage(response) {
-  if (response.status === 511) {
-    Toast.fail(response.message, 1.5)
-  } else if (response.status >= 200 && response.status < 400) {
-    Toast.success(response.message, 1)
-  } else if (response.status >= 400 && response.status < 600) {
-    Toast.fail(response.message, 1)
-  }
-  return response
+    if (response.status === 511) {
+        Toast.fail(response.message, 1.5)
+        browserHistory.push(ROUTES.LOGIN)
+    }
+    else if (response.status === 1001) {
+        browserHistory.push(ROUTES.FORBIDDEN)
+    }
+    else if (response.status >= 200 && response.status < 400) {
+        Toast.success(response.message, 1)
+    }
+    else if (response.status >= 400 && response.status < 600) {
+        Toast.fail(response.message, 1)
+    }
+    return response
 }
 
 function handleError() {
-  Toast.offline('网络错误，请稍后再试', 1.5)
+    Toast.offline('网络错误，请稍后再试', 1.5)
 
-  return {
-    response: {
-      data: {},
-      status: -1000,
-      message: '',
-    },
-  }
+    return {
+        response: {
+            data: {},
+            status: -1000,
+            message: '',
+        },
+    }
 }
 
 /**
@@ -121,23 +133,24 @@ function handleError() {
  * @return {object} 返回响应参数 response 或异常信息 err
  */
 export default function request(url, options) {
-  const { checkToken: isCheckToken, ...fetchOptions } = Object.assign(
-    {},
-    DEFAULT,
-    options
-  )
+    const {
+        checkToken: isCheckToken,
+        ...fetchOptions
+    } = Object.assign({}, DEFAULT, options)
 
-  if (requestCount === 0) {
-    Toast.loading('加载中...', 0)
-  }
+    fetchOptions.headers.Authorization = `Bearer ${Cookies.get('token')}`
 
-  requestCount += 1
+    if (requestCount === 0) {
+        Toast.loading('加载中...', 0)
+    }
 
-  return fetch(url, fetchOptions)
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(checkToken(isCheckToken))
-    .then(showMessage)
-    .then(response => ({ response }))
-    .catch(handleError)
+    requestCount += 1
+
+    return fetch(url, fetchOptions)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(checkToken(isCheckToken))
+        .then(showMessage)
+        .then(response => ({ response }))
+        .catch(handleError)
 }

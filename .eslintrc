@@ -1,32 +1,94 @@
+// {
+//   "parser": "babel-eslint",
+//   "env": {
+//     "browser": true
+//   },
+//   "extends": [
+//     "airbnb",
+//     "prettier",
+//     "prettier/react"
+//   ],
+//   "plugins": [
+//     "react",
+//     "jsx-a11y",
+//     "import",
+//     "prettier"
+//   ],
+//   "globals": {
+//     "__DEV__": true
+//   },
+//   "rules": {
+//     "arrow-parens": 0,
+//     "global-require": 0,
+//     "import/prefer-default-export": 0,
+//     "no-console": 0,
+//     "no-mixed-operators": 0,
+//     "no-use-before-define": 0,
+//     "radix": 0,
+//     "react/jsx-filename-extension": 0,
+//     "react/prop-types": 0,
+//     "semi": [2, "never"]
+//   }
+// }
 {
   "parser": "babel-eslint",
+  "extends": "airbnb",
   "env": {
     "browser": true
   },
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import",
-    "prettier"
-  ],
-  "globals": {
-    "__DEV__": true
-  },
   "rules": {
-    "arrow-parens": 0,
-    "global-require": 0,
-    "import/prefer-default-export": 0,
-    "no-console": 0,
-    "no-mixed-operators": 0,
-    "no-use-before-define": 0,
-    "radix": 0,
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": 0,
-    "semi": [2, "never"]
+    // 使用 2 个空格的缩进
+    "indent": [2, 4],
+
+    // 不使用分号
+    "semi": [2, "never"],
+
+    // 在 jsx 使用 2 个空格的缩进
+    "react/jsx-indent": [2, 4],
+
+    // 在 jsx 中使用单引号
+    "jsx-quotes": [2, "prefer-single"],
+
+    // 大括号风格，要求另起一行
+    "brace-style": [0, "stroustrup"],
+
+    // label 中的 for 参数为可选值
+    "jsx-a11y/label-has-for": [0],
+
+    // 使用 console 将不会提示，在生产环境中将由插件自动移除 console 语句
+    "no-console": [0],
+  
+    "linebreak-style": [0],
+
+    "max-len": [0],
+    
+    "react/jsx-indent-props": [2, 4],
+    "generator-star-spacing": [0],
+    "consistent-return": [0],
+    "react/forbid-prop-types": [0],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "global-require": [0],
+    "import/prefer-default-export": [0],
+    "react/jsx-no-bind": [0],
+    "react/prop-types": [0],
+    "react/prefer-stateless-function": [0],
+    "no-else-return": [0],
+    "no-restricted-syntax": [0],
+    "import/no-extraneous-dependencies": [0],
+    "no-use-before-define": [0],
+    "jsx-a11y/no-static-element-interactions": [0],
+    "no-nested-ternary": [0],
+    "arrow-body-style": [0],
+    "import/extensions": [0],
+    "no-bitwise": [0],
+    "no-cond-assign": [0],
+    "import/no-unresolved": [0],
+    "require-yield": [1]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   }
 }
+

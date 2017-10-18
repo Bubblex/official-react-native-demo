@@ -10,18 +10,18 @@ import routerModel from './models/router'
 import accountModel from './models/account'
 
 const app = dva({
-  initialState: {},
-  models: [appModel, routerModel, accountModel],
-  extraEnhancers: [autoRehydrate()],
-  onError(e) {
-    console.log('onError', e)
-  },
+    initialState: {},
+    models: [appModel, routerModel, accountModel],
+    extraEnhancers: [autoRehydrate()],
+    onError(e) {
+        console.log('onError', e)
+    },
 })
 
 const App = app.start(<Router />)
 persistStore(app.getStore(), {
-  storage: AsyncStorage,
-  blacklist: ['router'],
+    storage: AsyncStorage,
+    blacklist: ['router'],
 })
 
 AppRegistry.registerComponent('DvaStarter', () => App)
