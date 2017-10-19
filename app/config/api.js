@@ -5,11 +5,11 @@
 const DOMIN = 'https://easy-mock.com/mock/59e06355e2fd4e67507fb1a1/example'
 
 export default {
-  TEST_API: 'http://test4.xiaomaowu.com/api/recommend/data',
+    TEST_API: 'http://test4.xiaomaowu.com/api/recommend/data',
 
-  // 1.1.1 首页宫格菜单
-  BANNER: `${DOMIN}/banner`,
+    // 1.1.1 首页宫格菜单
+    BANNER: `${DOMIN}/banner`,
 
-  // 2.1.1 登录
-  LOGIN: `${DOMIN}/login`,
+    // 2.1.1 登录
+    LOGIN: `${DOMIN}/login`,
 }

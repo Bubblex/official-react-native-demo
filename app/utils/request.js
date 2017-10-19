@@ -1,9 +1,4 @@
-import fetch from 'dva/fetch'
-import Cookies from 'js-cookie'
-import { browserHistory } from 'dva/router'
-
 import { Toast } from 'antd-mobile'
-import ROUTES from '../config/routes'
 
 /**
  * 记录请求次数
@@ -81,7 +76,6 @@ function checkToken(isCheckToken) {
         if (isCheckToken && flag) {
             Toast.warn(response.message, 1.5, () => {
                 flag = true
-                browserHistory.push(ROUTES.LOGIN)
             })
         }
         return response
@@ -97,10 +91,6 @@ function checkToken(isCheckToken) {
 function showMessage(response) {
     if (response.status === 511) {
         Toast.fail(response.message, 1.5)
-        browserHistory.push(ROUTES.LOGIN)
-    }
-    else if (response.status === 1001) {
-        browserHistory.push(ROUTES.FORBIDDEN)
     }
     else if (response.status >= 200 && response.status < 400) {
         Toast.success(response.message, 1)
@@ -138,7 +128,7 @@ export default function request(url, options) {
         ...fetchOptions
     } = Object.assign({}, DEFAULT, options)
 
-    fetchOptions.headers.Authorization = `Bearer ${Cookies.get('token')}`
+    // fetchOptions.headers.Authorization = `Bearer ${Cookies.get('token')}`
 
     if (requestCount === 0) {
         Toast.loading('加载中...', 0)
