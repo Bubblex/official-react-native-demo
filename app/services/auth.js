@@ -26,3 +26,10 @@ export async function fetchLogin(params) {
         body: JSON.stringify(params),
     })
 }
+
+// 3.1.1 长列表示例
+export async function fetchExampleList(params) {
+    return request(API.EXAMPLE_LIST, {
+        body: JSON.stringify(params),
+    })
+}

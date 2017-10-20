@@ -12,4 +12,7 @@ export default {
 
     // 2.1.1 登录
     LOGIN: `${DOMIN}/login`,
+
+    // 3.1.1 长列表示例
+    EXAMPLE_LIST: `${DOMIN}/example/list`,
 }

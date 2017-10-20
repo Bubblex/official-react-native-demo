@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, ListView, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import { Tag } from 'antd-mobile'
 
 @connect(state => state)
 class Example extends Component {
@@ -22,13 +21,89 @@ class Example extends Component {
         },
     })
 
+    constructor(props) {
+        super(props)
+        const dataSource = new ListView.DataSource({
+            rowHasChanged: (row1, row2) => row1 !== row2,
+        })
+
+        // 当前所有元素的列表
+        this.rData = []
+        this.state = {
+            dataSource: dataSource.cloneWithRows(this.rData),
+            isLoading: true,
+        }
+    }
+
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'example/fetchExampleList',
+            payload: {
+                page: 1,
+            },
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const exampleList = nextProps.example.exampleList
+        const examplePaginate = nextProps.example.examplePaginate
+
+        if (exampleList.length > 0 && examplePaginate.page !== this.props.example.examplePaginate.page) {
+            this.rData = this.rData.concat(exampleList)
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.rData),
+                isLoading: false,
+            })
+        }
+        else if (exampleList.length === 0 && this.rData.length === 0) {
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.rData),
+                hasMore: false,
+            })
+        }
+    }
+
+    onEndReached = () => {
+        const {
+            dispatch,
+            example: {
+                examplePaginate,
+            },
+        } = this.props
+
+        if (this.state.isLoading && !this.state.hasMore) {
+            return
+        }
+
+        // if (!examplePaginate || !examplePaginate.page) {
+        //     return
+        // }
+
+        this.setState({ isLoading: true })
+
+        dispatch({
+            type: 'example/fetchExampleList',
+            payload: {
+                page: examplePaginate.page + 1,
+            },
+        })
+    }
+
+    renderItem = ({ item, indexs }) => {
+        return (
+            <Text key={indexs}>{item.title}</Text>
+        )
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Text>示例页面</Text>
-                <Tag data-seed='logId'>Basic</Tag>
-                <Tag selected>Selected</Tag>
-                <Tag disabled>Disabled</Tag>
+                <FlatList
+                    data={this.rData}
+                    renderItem={this.renderItem}
+                    onEndReachedThreshold={0.2}
+                    onEndReached={this.onEndReached}
+                />
             </View>
         )
     }
@@ -38,7 +113,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
     },
     icon: {
         width: 32,
