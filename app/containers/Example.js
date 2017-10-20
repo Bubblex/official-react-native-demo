@@ -90,9 +90,9 @@ class Example extends Component {
     }
 
     onRefresh = () => {
-        this.rData = []
         const { dispatch } = this.props
 
+        this.rData = []
         dispatch({
             type: 'example/removeExampleList',
         })
@@ -123,10 +123,15 @@ class Example extends Component {
                 <FlatList
                     data={this.rData}
                     renderItem={this.renderItem}
-                    onEndReachedThreshold={0.2}
+                    onEndReachedThreshold={0.5}
                     onEndReached={this.onEndReached}
                     onRefresh={this.onRefresh}
                     refreshing={false}
+                    ListFooterComponent={() => (
+                        <View style={styles.container}>
+                            <Text>{!this.state.hasMore ? '没有更多了...' : ''}</Text>
+                        </View>
+                    )}
                 />
             </View>
         )
