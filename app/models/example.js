@@ -15,6 +15,15 @@ export default {
                 examplePaginate,
             }
         },
+
+        // 清除列表页数据
+        removeExampleList(state) {
+            return {
+                ...state,
+                exampleList: [],
+                examplePaginate: {},
+            }
+        },
     },
     effects: {
         // 3.1.1 长列表示例

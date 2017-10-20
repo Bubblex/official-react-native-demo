@@ -89,9 +89,31 @@ class Example extends Component {
         })
     }
 
+    onRefresh = () => {
+        this.rData = []
+        const { dispatch } = this.props
+
+        dispatch({
+            type: 'example/removeExampleList',
+        })
+
+        dispatch({
+            type: 'example/fetchExampleList',
+            payload: {
+                page: 1,
+            },
+        })
+    }
+
     renderItem = ({ item, indexs }) => {
         return (
-            <Text key={indexs}>{item.title}</Text>
+            <View key={indexs} style={styles.item}>
+                <Image
+                    style={styles.icon}
+                    source={{ uri: item.image }}
+                />
+                <Text>{item.title}</Text>
+            </View>
         )
     }
 
@@ -103,6 +125,8 @@ class Example extends Component {
                     renderItem={this.renderItem}
                     onEndReachedThreshold={0.2}
                     onEndReached={this.onEndReached}
+                    onRefresh={this.onRefresh}
+                    refreshing={false}
                 />
             </View>
         )
@@ -118,6 +142,14 @@ const styles = StyleSheet.create({
     icon: {
         width: 32,
         height: 32,
+    },
+
+    item: {
+        flex: 1,
+        padding: 10,
+        borderColor: '#ddd',
+        alignItems: 'center',
+        borderBottomWidth: 1,
     },
 })
 
