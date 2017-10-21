@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, ListView, FlatList } from 'react-native'
 import { connect } from 'react-redux'
+// import { SearchBar } from 'antd-mobile'
 
 @connect(state => state)
 class Example extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '示例',
-        tabBarLabel: '示例',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <Image
-                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
-                source={require('../images/person.png')}
-            />
-        ),
+        title: 'FlatList示例',
         headerStyle: {
             backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
         },
-        headerTitleStyle: {
-            alignSelf: 'center',
-        },
+
+        // headerTitle: <SearchBar placeholder='搜索二手车' />,
+        // headerRight: <Text>icon</Text>,
     })
 
     constructor(props) {
