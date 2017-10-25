@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Image, Text } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
+// import Camera from 'react-native-camera'
 
 import { NavigationActions } from '../utils'
 
@@ -33,6 +34,17 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Example' }))
     }
 
+    gotoSectionList = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'Car' }))
+    }
+
+    takePicture() {
+        const options = {}
+        this.camera.capture({ metadata: options })
+            .then((data) => { console.log(data) })
+            .catch(err => console.error(err))
+    }
+
     render() {
         const { app: { banner } } = this.props
 
@@ -40,9 +52,21 @@ class Home extends Component {
             <View style={styles.container}>
                 <Grid data={banner} />
                 <Button onClick={this.gotoDetail}>Goto Detail</Button>
-                <Text>{this.props.app.username}</Text>
+                <Button onClick={this.gotoSectionList}>SectionList</Button>
                 <Button onClick={this.fetchTest}>Fetch Test</Button>
-                <Button onClick={this.linkExample}>link to example</Button>
+                <Text>{this.props.app.username}</Text>
+                <Button onClick={this.linkExample}>FlatList示例</Button>
+                {
+                    // <Camera
+                    //     ref={(cam) => {
+                    //         this.camera = cam
+                    //     }}
+                    //     style={styles.preview}
+                    //     aspect={Camera.constants.Aspect.fill}
+                    // >
+                    //     <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                    // </Camera>
+                }
             </View>
         )
     }
@@ -63,6 +87,19 @@ const styles = StyleSheet.create({
     },
     item: {
         height: 20,
+    },
+    preview: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    capture: {
+        flex: 0,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        color: '#000',
+        padding: 10,
+        margin: 40,
     },
 })
 

@@ -14,12 +14,12 @@ import Home from './containers/Home'
 import Account from './containers/Account'
 import Detail from './containers/Detail'
 import Example from './containers/Example'
+import Car from './containers/Car'
 
 // 底部标签栏
 const HomeNavigator = TabNavigator(
     {
         Home: { screen: Home },
-        Example: { screen: Example },
         Account: { screen: Account },
     },
     {
@@ -36,6 +36,8 @@ const MainNavigator = StackNavigator(
     {
         HomeNavigator: { screen: HomeNavigator },
         Detail: { screen: Detail },
+        Example: { screen: Example },
+        Car: { screen: Car },
     },
     {
         headerMode: 'float',
