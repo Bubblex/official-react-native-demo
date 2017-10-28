@@ -29,7 +29,7 @@ class TakePicture extends Component {
 
         const qrcodeData = result.data
 
-        if(qrcodeData) {
+        if (qrcodeData) {
             this.props.dispatch({
                 type: 'camera/saveQrcodeData',
                 qrcodeData,
