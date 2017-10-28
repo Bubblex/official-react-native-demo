@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Text } from 'react-native'
+import { StyleSheet, View, Image, Text, CameraRoll } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
 
@@ -21,6 +21,15 @@ class Home extends Component {
         },
     })
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            photoSource: null,
+            isShowCamera: false,
+        }
+    }
+
     gotoDetail = () => {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
     }
@@ -33,6 +42,31 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Example' }))
     }
 
+    gotoSectionList = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'Car' }))
+    }
+
+    takePicture = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'TakePicture' }))
+    }
+
+    choosePicture = () => {
+        CameraRoll.getPhotos({ first: 5 }).done((files) => {
+            console.log(files)
+            const edges = files.edges
+            const photos = []
+            for (const i in edges) {
+                if (edges.length !== 0) {
+                    photos.push(edges[i].node.image.uri)
+                }
+            }
+            console.log(photos)
+            this.setState({
+                photoSource: { uri: files.edges[3].node.image.uri },
+            })
+        })
+    }
+
     render() {
         const { app: { banner } } = this.props
 
@@ -40,9 +74,17 @@ class Home extends Component {
             <View style={styles.container}>
                 <Grid data={banner} />
                 <Button onClick={this.gotoDetail}>Goto Detail</Button>
-                <Text>{this.props.app.username}</Text>
+                <Button onClick={this.gotoSectionList}>SectionList</Button>
                 <Button onClick={this.fetchTest}>Fetch Test</Button>
-                <Button onClick={this.linkExample}>link to example</Button>
+                <Text>{this.props.app.username}</Text>
+                <Button onClick={this.linkExample}>FlatList示例</Button>
+                <Button onClick={this.takePicture}>拍照</Button>
+                <Button onClick={this.choosePicture}>选择照片</Button>
+                <Image
+                    style={styles.icon}
+                    source={this.state.photoSource}
+                    resizeMode='cover'
+                />
             </View>
         )
     }
@@ -63,6 +105,19 @@ const styles = StyleSheet.create({
     },
     item: {
         height: 20,
+    },
+    preview: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    capture: {
+        flex: 0,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        color: '#000',
+        padding: 10,
+        margin: 40,
     },
 })
 
