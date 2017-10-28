@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Text } from 'react-native'
+import { StyleSheet, View, Image, Text, CameraRoll } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
-// import Camera from 'react-native-camera'
 
 import { NavigationActions } from '../utils'
 
@@ -22,6 +21,15 @@ class Home extends Component {
         },
     })
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            photoSource: null,
+            isShowCamera: false,
+        }
+    }
+
     gotoDetail = () => {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
     }
@@ -38,11 +46,25 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Car' }))
     }
 
-    takePicture() {
-        const options = {}
-        this.camera.capture({ metadata: options })
-            .then((data) => { console.log(data) })
-            .catch(err => console.error(err))
+    takePicture = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'TakePicture' }))
+    }
+
+    choosePicture = () => {
+        CameraRoll.getPhotos({ first: 5 }).done((files) => {
+            console.log(files)
+            const edges = files.edges
+            const photos = []
+            for (const i in edges) {
+                if (edges.length !== 0) {
+                    photos.push(edges[i].node.image.uri)
+                }
+            }
+            console.log(photos)
+            this.setState({
+                photoSource: { uri: files.edges[3].node.image.uri },
+            })
+        })
     }
 
     render() {
@@ -56,17 +78,13 @@ class Home extends Component {
                 <Button onClick={this.fetchTest}>Fetch Test</Button>
                 <Text>{this.props.app.username}</Text>
                 <Button onClick={this.linkExample}>FlatList示例</Button>
-                {
-                    // <Camera
-                    //     ref={(cam) => {
-                    //         this.camera = cam
-                    //     }}
-                    //     style={styles.preview}
-                    //     aspect={Camera.constants.Aspect.fill}
-                    // >
-                    //     <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-                    // </Camera>
-                }
+                <Button onClick={this.takePicture}>拍照</Button>
+                <Button onClick={this.choosePicture}>选择照片</Button>
+                <Image
+                    style={styles.icon}
+                    source={this.state.photoSource}
+                    resizeMode='cover'
+                />
             </View>
         )
     }

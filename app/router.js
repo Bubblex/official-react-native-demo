@@ -15,7 +15,7 @@ import Account from './containers/Account'
 import Detail from './containers/Detail'
 import Example from './containers/Example'
 import Car from './containers/Car'
-
+import TakePicture from './containers/camera/TakePicture'
 // 底部标签栏
 const HomeNavigator = TabNavigator(
     {
@@ -38,6 +38,7 @@ const MainNavigator = StackNavigator(
         Detail: { screen: Detail },
         Example: { screen: Example },
         Car: { screen: Car },
+        TakePicture: { screen: TakePicture },
     },
     {
         headerMode: 'float',
