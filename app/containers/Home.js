@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Text, CameraRoll } from 'react-native'
+import { StyleSheet, ScrollView, Image, Text, CameraRoll } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
 
@@ -30,6 +30,10 @@ class Home extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.choosePicture()
+    }
+
     gotoDetail = () => {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
     }
@@ -51,7 +55,7 @@ class Home extends Component {
     }
 
     choosePicture = () => {
-        CameraRoll.getPhotos({ first: 5 }).done((files) => {
+        CameraRoll.getPhotos({ first: 1 }).done((files) => {
             console.log(files)
             const edges = files.edges
             const photos = []
@@ -62,7 +66,7 @@ class Home extends Component {
             }
             console.log(photos)
             this.setState({
-                photoSource: { uri: files.edges[3].node.image.uri },
+                photoSource: { uri: files.edges[0].node.image.uri },
             })
         })
     }
@@ -71,7 +75,7 @@ class Home extends Component {
         const { app: { banner } } = this.props
 
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Grid data={banner} />
                 <Button onClick={this.gotoDetail}>Goto Detail</Button>
                 <Button onClick={this.gotoSectionList}>SectionList</Button>
@@ -82,11 +86,11 @@ class Home extends Component {
                 <Text> 扫码结果：{this.props.camera.qrcodeData}</Text>
                 <Button onClick={this.choosePicture}>选择照片</Button>
                 <Image
-                    style={styles.icon}
+                    style={styles.picture}
                     source={this.state.photoSource}
                     resizeMode='cover'
                 />
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -99,6 +103,11 @@ const styles = StyleSheet.create({
     icon: {
         width: 32,
         height: 32,
+    },
+    picture: {
+        width: '100%',
+        height: 200,
+        marginBottom: 100,
     },
     banner: {
         width: '100%',

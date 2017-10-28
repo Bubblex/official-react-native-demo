@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, CameraRoll, Animated, Easing } from 'react-native'
+import { StyleSheet, View, Text, Animated, Easing } from 'react-native'
 import { connect } from 'react-redux'
 import Camera from 'react-native-camera'
 import { NavigationActions } from '../../utils'
@@ -55,11 +55,12 @@ class TakePicture extends Component {
         this.camera.capture({ metadata: options })
             .then((data) => {
                 console.log(data)
-                this.setState({ pictureData: data })
+                this.props.dispatch(NavigationActions.navigate({ routeName: 'Home' }))
 
-                CameraRoll.getPhotos({ first: 5 }).done((files) => {
-                    console.log(files)
-                })
+                // this.setState({ pictureData: data })
+                // CameraRoll.getPhotos({ first: 5 }).done((files) => {
+                //     console.log(files)
+                // })
             })
             .catch(err => console.error(err))
     }
