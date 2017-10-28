@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, CameraRoll, Animated, Easing } from 'react-native'
 import { connect } from 'react-redux'
 import Camera from 'react-native-camera'
+import { NavigationActions } from '../../utils'
 
 @connect(state => state)
 
@@ -20,13 +21,21 @@ class TakePicture extends Component {
     }
 
     onBarCodeRead = (result) => {
-        // const {navigator, route} = this.props
+        // const { navigator } = this.props
         // const {qrCodeRead} = route
         // const {data} = result
         // qrCodeRead && qrCodeRead(data)
         // navigator.pop()
 
-        console.log(result)
+        const qrcodeData = result.data
+
+        if(qrcodeData) {
+            this.props.dispatch({
+                type: 'camera/saveQrcodeData',
+                qrcodeData,
+            })
+            this.props.dispatch(NavigationActions.navigate({ routeName: 'Home' }))
+        }
     };
 
     startAnimation = () => {

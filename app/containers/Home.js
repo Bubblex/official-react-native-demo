@@ -79,6 +79,7 @@ class Home extends Component {
                 <Text>{this.props.app.username}</Text>
                 <Button onClick={this.linkExample}>FlatList示例</Button>
                 <Button onClick={this.takePicture}>拍照</Button>
+                <Text> 扫码结果：{this.props.camera.qrcodeData}</Text>
                 <Button onClick={this.choosePicture}>选择照片</Button>
                 <Image
                     style={styles.icon}
