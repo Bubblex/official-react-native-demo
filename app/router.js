@@ -16,6 +16,8 @@ import Detail from './containers/Detail'
 import Example from './containers/Example'
 import Car from './containers/Car'
 import TakePicture from './containers/camera/TakePicture'
+import Maps from './containers/maps/Maps'
+
 // 底部标签栏
 const HomeNavigator = TabNavigator(
     {
@@ -38,6 +40,7 @@ const MainNavigator = StackNavigator(
         Detail: { screen: Detail },
         Example: { screen: Example },
         Car: { screen: Car },
+        Maps: { screen: Maps },
         TakePicture: { screen: TakePicture },
     },
     {

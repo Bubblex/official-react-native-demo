@@ -54,6 +54,10 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'TakePicture' }))
     }
 
+    linkMaps = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'Maps' }))
+    }
+
     choosePicture = () => {
         CameraRoll.getPhotos({ first: 1 }).done((files) => {
             console.log(files)
@@ -78,13 +82,14 @@ class Home extends Component {
             <ScrollView style={styles.container}>
                 <Grid data={banner} />
                 <Button onClick={this.gotoDetail}>Goto Detail</Button>
-                <Button onClick={this.gotoSectionList}>SectionList</Button>
+                <Button onClick={this.gotoSectionList}>SectionList Example</Button>
                 <Button onClick={this.fetchTest}>Fetch Test</Button>
                 <Text>{this.props.app.username}</Text>
-                <Button onClick={this.linkExample}>FlatList示例</Button>
-                <Button onClick={this.takePicture}>拍照</Button>
-                <Text> 扫码结果：{this.props.camera.qrcodeData}</Text>
-                <Button onClick={this.choosePicture}>选择照片</Button>
+                <Button onClick={this.linkExample}>FlatList Example</Button>
+                <Button onClick={this.linkMaps}>Maps Example</Button>
+                <Button onClick={this.takePicture}>Camera & Qrcode Example</Button>
+                <Text> Scan result：{this.props.camera.qrcodeData}</Text>
+                <Button onClick={this.choosePicture}>Select Picture</Button>
                 <Image
                     style={styles.picture}
                     source={this.state.photoSource}
