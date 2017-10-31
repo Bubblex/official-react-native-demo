@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Animated, Easing } from 'react-native'
+import { StyleSheet, View, Text, Animated, Easing, Image } from 'react-native'
 import { connect } from 'react-redux'
 import Camera from 'react-native-camera'
 import { NavigationActions } from '../../utils'
@@ -7,6 +7,20 @@ import { NavigationActions } from '../../utils'
 @connect(state => state)
 
 class TakePicture extends Component {
+    static navigationOptions = ({ screenProps }) => ({
+        title: '拍照',
+        tabBarLabel: '拍照',
+        tabBarIcon: ({ focused, tintColor }) => (
+            <Image
+                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
+                source={require('../../images/person.png')}
+            />
+        ),
+        headerStyle: {
+            backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
+        },
+    })
+
     constructor(props) {
         super(props)
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import MapView from 'react-native-maps'
 
@@ -17,6 +17,8 @@ class Maps extends Component {
     }
 
     render() {
+        console.log('Platform')
+        console.log(Platform)
         const MapStyle = []
         return (
             <View style={styles.container}>

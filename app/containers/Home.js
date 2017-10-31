@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, ScrollView, Image, Text, CameraRoll } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
+import ImagePicker from 'react-native-image-picker'
 
 import { NavigationActions } from '../utils'
 
@@ -26,6 +27,7 @@ class Home extends Component {
 
         this.state = {
             photoSource: null,
+            avatarSource: null,
             isShowCamera: false,
         }
     }
@@ -75,8 +77,46 @@ class Home extends Component {
         })
     }
 
+    imagePicker = () => {
+        const options = {
+            title: 'Select Avatar',
+            customButtons: [
+                { name: 'fb', title: 'Choose Photo from Facebook' },
+            ],
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+            },
+        }
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response)
+            if (response.didCancel) {
+                console.log('User cancelled image picker')
+            }
+            else if (response.error) {
+                console.log('ImagePicker Error: ', response.error)
+            }
+            else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton)
+            }
+            else {
+                const source = { uri: response.uri }
+
+                // You can also display the image using data:
+                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+                this.setState({
+                    avatarSource: source,
+                })
+            }
+        })
+    }
+
     render() {
         const { app: { banner } } = this.props
+
+        console.log(this.state.avatarSource)
+        console.log(this.state.photoSource)
 
         return (
             <ScrollView style={styles.container}>
@@ -89,7 +129,13 @@ class Home extends Component {
                 <Button onClick={this.linkMaps}>Maps Example</Button>
                 <Button onClick={this.takePicture}>Camera & Qrcode Example</Button>
                 <Text> Scan result：{this.props.camera.qrcodeData}</Text>
-                <Button onClick={this.choosePicture}>Select Picture</Button>
+                <Button onClick={this.imagePicker}>Select Picture</Button>
+                <Image
+                    source={this.state.avatarSource}
+                    style={styles.picture}
+                    resizeMode='cover'
+                />
+                <Text>----------------我是分割线-------------------</Text>
                 <Image
                     style={styles.picture}
                     source={this.state.photoSource}
