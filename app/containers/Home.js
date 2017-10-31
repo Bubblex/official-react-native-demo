@@ -79,14 +79,18 @@ class Home extends Component {
 
     imagePicker = () => {
         const options = {
-            title: 'Select Avatar',
+            title: '选择图片',
             customButtons: [
-                { name: 'fb', title: 'Choose Photo from Facebook' },
+                // { name: 'fb', title: 'Choose Photo from Facebook' },
             ],
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
             },
+            quality: 0.3,
+            cancelButtonTitle: '取消',
+            takePhotoButtonTitle: '拍照',
+            chooseFromLibraryButtonTitle: '从手机相册选择',
         }
         ImagePicker.showImagePicker(options, (response) => {
             console.log('Response = ', response)
