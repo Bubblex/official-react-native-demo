@@ -168,7 +168,8 @@ const styles = StyleSheet.create({
         height: 32,
     },
     headerIcon: {
-        marginRight: 15,
+        // marginRight: 8,
+        height: 40
     },
     picture: {
         width: '100%',
