@@ -2,25 +2,17 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, Animated, Easing } from 'react-native'
 import { connect } from 'react-redux'
 import Camera from 'react-native-camera'
-import Icon from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../../utils'
 
+import themeConfig from '../../config/theme'
 
 @connect(state => state)
 
 class TakePicture extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '分类',
-        tabBarLabel: '分类',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <Icon
-                name={focused ? 'ios-albums' : 'ios-albums-outline'}
-                size={30}
-                color={focused ? tintColor : 'gray'}
-            />
-        ),
+        title: '扫描二维码',
         headerStyle: {
-            backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
+            backgroundColor: screenProps.themeColor,
         },
     })
 
@@ -102,7 +94,12 @@ class TakePicture extends Component {
                             ]}
                         />
                         <Text style={styles.rectangleText}>将二维码放入框内，即可自动扫描</Text>
-                        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                        {
+                            false
+                            &&
+                            // can get the last phone to show
+                            <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[点击拍照]</Text>
+                        }
                     </View>
                 </Camera>
             </View>
@@ -111,20 +108,28 @@ class TakePicture extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    preview: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     rectangle: {
         width: 200,
         height: 200,
-        borderColor: 'red',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        borderColor: themeConfig.brandPrimary,
         borderWidth: 4,
     },
     border: {
         width: 200,
         height: 4,
-        backgroundColor: 'red',
-    },
-    container: {
-        flex: 1,
-        // alignItems: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        backgroundColor: themeConfig.brandPrimary,
     },
     icon: {
         width: 32,
@@ -136,11 +141,6 @@ const styles = StyleSheet.create({
     },
     item: {
         height: 20,
-    },
-    preview: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
     },
     capture: {
         flex: 0,

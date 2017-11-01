@@ -6,10 +6,11 @@ import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import { NavigationActions } from '../utils'
+import themeConfig from '../config/theme'
 
 @connect(state => state)
 class Home extends Component {
-    static navigationOptions = ({ screenProps }) => ({
+    static navigationOptions = ({ screenProps, navigation }) => ({
         title: '首页',
         tabBarLabel: '首页',
         tabBarIcon: ({ focused, tintColor }) => (
@@ -22,6 +23,16 @@ class Home extends Component {
         headerStyle: {
             backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
         },
+        headerRight: (
+            <Icon.Button
+                name='ios-qr-scanner'
+                backgroundColor={themeConfig.brandPrimary}
+                size={30}
+                color='#fff'
+                style={styles.headerIcon}
+                onPress={() => { navigation.navigate('TakePicture') }}
+            />
+        ),
     })
 
     constructor(props) {
@@ -155,6 +166,9 @@ const styles = StyleSheet.create({
     icon: {
         width: 32,
         height: 32,
+    },
+    headerIcon: {
+        marginRight: 15,
     },
     picture: {
         width: '100%',
