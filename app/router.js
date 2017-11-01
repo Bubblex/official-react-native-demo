@@ -26,8 +26,8 @@ import ThemeConfig from './config/theme'
 const HomeNavigator = TabNavigator(
     {
         Home: { screen: Home },
-        Discover: { screen: Discover },
         Albums: { screen: Albums },
+        Discover: { screen: Discover },
         Account: { screen: Account },
     },
     {
