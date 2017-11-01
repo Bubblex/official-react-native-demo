@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Image, Button } from 'react-native'
+import { StyleSheet, View, Button } from 'react-native'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { NavigationActions } from '../utils'
 
@@ -10,9 +11,10 @@ class Account extends Component {
         title: '个人中心',
         tabBarLabel: '个人中心',
         tabBarIcon: ({ focused, tintColor }) => (
-            <Image
-                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
-                source={require('../images/person.png')}
+            <Icon
+                name={focused ? 'ios-contact' : 'ios-contact-outline'}
+                size={30}
+                color={focused ? tintColor : 'gray'}
             />
         ),
         headerStyle: {

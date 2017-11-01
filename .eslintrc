@@ -63,6 +63,8 @@
     "linebreak-style": [0],
 
     "max-len": [0],
+
+    "no-return-assign": [0],
     
     "react/jsx-indent-props": [2, 4],
     "react/no-array-index-key": [0],

@@ -3,18 +3,20 @@ import { StyleSheet, ScrollView, Image, Text, CameraRoll } from 'react-native'
 import { Button, Grid } from 'antd-mobile'
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { NavigationActions } from '../utils'
 
 @connect(state => state)
 class Home extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '主页',
-        tabBarLabel: '主页',
+        title: '首页',
+        tabBarLabel: '首页',
         tabBarIcon: ({ focused, tintColor }) => (
-            <Image
-                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
-                source={require('../images/house.png')}
+            <Icon
+                name={focused ? 'ios-home' : 'ios-home-outline'}
+                size={30}
+                color={focused ? tintColor : 'gray'}
             />
         ),
         headerStyle: {
@@ -62,7 +64,6 @@ class Home extends Component {
 
     choosePicture = () => {
         CameraRoll.getPhotos({ first: 1 }).done((files) => {
-            console.log(files)
             const edges = files.edges
             const photos = []
             for (const i in edges) {
@@ -70,7 +71,6 @@ class Home extends Component {
                     photos.push(edges[i].node.image.uri)
                 }
             }
-            console.log(photos)
             this.setState({
                 photoSource: { uri: files.edges[0].node.image.uri },
             })
@@ -118,9 +118,6 @@ class Home extends Component {
 
     render() {
         const { app: { banner } } = this.props
-
-        console.log(this.state.avatarSource)
-        console.log(this.state.photoSource)
 
         return (
             <ScrollView style={styles.container}>

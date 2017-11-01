@@ -18,13 +18,16 @@ import Car from './containers/Car'
 import TakePicture from './containers/camera/TakePicture'
 import Maps from './containers/maps/Maps'
 import Discover from './containers/Discover'
+import Albums from './containers/Albums'
+
+import ThemeConfig from './config/theme'
 
 // 底部标签栏
 const HomeNavigator = TabNavigator(
     {
         Home: { screen: Home },
-        TakePicture: { screen: TakePicture },
         Discover: { screen: Discover },
+        Albums: { screen: Albums },
         Account: { screen: Account },
     },
     {
@@ -33,6 +36,13 @@ const HomeNavigator = TabNavigator(
         swipeEnabled: false,
         animationEnabled: false,
         lazyLoad: true,
+        tabBarOptions: {
+            activeTintColor: ThemeConfig.brandPrimary,
+            inactiveTintColor: 'gray',
+            style: {
+                backgroundColor: '#fff',
+            },
+        },
     },
 )
 
@@ -44,6 +54,7 @@ const MainNavigator = StackNavigator(
         Example: { screen: Example },
         Maps: { screen: Maps },
         Car: { screen: Car },
+        TakePicture: { screen: TakePicture },
     },
     {
         headerMode: 'float',
@@ -133,7 +144,7 @@ class Router extends PureComponent {
         return (
             <AppNavigator
                 navigation={navigation}
-                screenProps={{ themeColor: 'lightblue' }}
+                screenProps={{ themeColor: ThemeConfig.brandPrimary }}
             />
         )
     }

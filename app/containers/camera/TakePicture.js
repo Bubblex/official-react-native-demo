@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Animated, Easing, Image } from 'react-native'
+import { StyleSheet, View, Text, Animated, Easing } from 'react-native'
 import { connect } from 'react-redux'
 import Camera from 'react-native-camera'
+import Icon from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../../utils'
+
 
 @connect(state => state)
 
 class TakePicture extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '拍照',
-        tabBarLabel: '拍照',
+        title: '分类',
+        tabBarLabel: '分类',
         tabBarIcon: ({ focused, tintColor }) => (
-            <Image
-                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
-                source={require('../../images/person.png')}
+            <Icon
+                name={focused ? 'ios-albums' : 'ios-albums-outline'}
+                size={30}
+                color={focused ? tintColor : 'gray'}
             />
         ),
         headerStyle: {

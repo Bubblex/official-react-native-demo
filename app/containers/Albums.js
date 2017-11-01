@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 @connect()
-class Discover extends Component {
+class Albums extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '购物车',
-        tabBarLabel: '购物车',
+        title: '分类',
+        tabBarLabel: '分类',
         tabBarIcon: ({ focused, tintColor }) => (
             <Icon
-                name={focused ? 'ios-cart' : 'ios-cart-outline'}
+                name={focused ? 'ios-albums' : 'ios-albums-outline'}
                 size={30}
                 color={focused ? tintColor : 'gray'}
             />
@@ -23,7 +23,7 @@ class Discover extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>发现</Text>
+                <Text>分类</Text>
             </View>
         )
     }
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Discover
+export default Albums
