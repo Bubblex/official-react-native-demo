@@ -2,13 +2,16 @@ import { createAction, NavigationActions } from '../utils'
 import * as authService from '../services/auth'
 
 export default {
-    namespace: 'app',
+    namespace: 'common',
     state: {
         fetching: false,
         login: false,
         username: 'jiangxiao',
 
-        banner: [],
+        indexBanner: {
+            banner: [],
+            grid: [],
+        },
     },
     reducers: {
         loginStart(state, { payload }) {
@@ -19,17 +22,11 @@ export default {
         },
 
         changeUsername(state, { username }) {
-            return {
-                ...state,
-                username,
-            }
+            return { ...state, username }
         },
 
-        saveBanner(state, { banner }) {
-            return {
-                ...state,
-                banner,
-            }
+        saveBanner(state, { indexBanner }) {
+            return { ...state, indexBanner }
         },
     },
     effects: {
@@ -69,16 +66,10 @@ export default {
             if (status === 1) {
                 yield put({
                     type: 'saveBanner',
-                    banner: data.banner,
+                    indexBanner: data,
                 })
             }
         },
     },
-    subscriptions: {
-        setup({ dispatch }) {
-            dispatch({
-                type: 'fetchBanner',
-            })
-        },
-    },
+    subscriptions: {},
 }

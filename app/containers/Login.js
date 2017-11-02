@@ -13,7 +13,7 @@ class Login extends Component {
     }
 
     onLogin = () => {
-        this.props.dispatch(createAction('app/login')())
+        this.props.dispatch(createAction('common/login')())
     }
 
     onClose = () => {

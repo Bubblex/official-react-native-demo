@@ -5,7 +5,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import dva from './utils/dva'
 import Router from './router'
 
-import appModel from './models/app'
+import commonModel from './models/common'
 import cameraModel from './models/camera'
 import routerModel from './models/router'
 import exampleModel from './models/example'
@@ -13,7 +13,7 @@ import accountModel from './models/account'
 
 const app = dva({
     initialState: {},
-    models: [appModel, routerModel, accountModel, exampleModel, cameraModel],
+    models: [commonModel, routerModel, accountModel, exampleModel, cameraModel],
     extraEnhancers: [autoRehydrate()],
     onError(e) {
         console.log('onError', e)

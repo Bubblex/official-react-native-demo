@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, ScrollView, Image, Text, CameraRoll } from 'react-native'
-import { Button, Grid } from 'antd-mobile'
+import { StyleSheet, ScrollView, Image, Text, CameraRoll, TouchableOpacity } from 'react-native'
+import { Button, Grid, Carousel } from 'antd-mobile'
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -15,9 +15,9 @@ class Home extends Component {
         tabBarLabel: '首页',
         tabBarIcon: ({ focused, tintColor }) => (
             <Icon
-                name={focused ? 'ios-home' : 'ios-home-outline'}
                 size={30}
                 color={focused ? tintColor : 'gray'}
+                name={focused ? 'ios-home' : 'ios-home-outline'}
             />
         ),
         headerStyle: {
@@ -47,6 +47,10 @@ class Home extends Component {
 
     componentDidMount = () => {
         this.choosePicture()
+
+        this.props.dispatch({
+            type: 'common/fetchBanner',
+        })
     }
 
     gotoDetail = () => {
@@ -54,7 +58,7 @@ class Home extends Component {
     }
 
     fetchTest = () => {
-        this.props.dispatch({ type: 'app/fetchTest' })
+        this.props.dispatch({ type: 'common/fetchTest' })
     }
 
     linkExample = () => {
@@ -128,15 +132,39 @@ class Home extends Component {
     }
 
     render() {
-        const { app: { banner } } = this.props
+        const { common: { indexBanner } } = this.props
 
         return (
             <ScrollView style={styles.container}>
-                <Grid data={banner} />
+                <Carousel
+                    style={styles.Carousel}
+                    dragging={false}
+                    swiping={false}
+                    autoplay
+                    infinite
+                >
+                    {
+                        indexBanner.banner.map(({ image }, index) => (
+                            <Image source={{ uri: image }} style={styles.bannerImage} key={index} />
+                        ))
+                    }
+                </Carousel>
+                <Grid
+                    hasLine={false}
+                    data={indexBanner.grid}
+                    renderItem={
+                        dataItem => (
+                            <TouchableOpacity style={styles.TouchableOpacity}>
+                                <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+                                <Text style={styles.gridText}>{dataItem.text}</Text>
+                            </TouchableOpacity>
+                        )
+                    }
+                />
                 <Button onClick={this.gotoDetail}>Goto Detail</Button>
                 <Button onClick={this.gotoSectionList}>SectionList Example</Button>
                 <Button onClick={this.fetchTest}>Fetch Test</Button>
-                <Text>{this.props.app.username}</Text>
+                <Text>{this.props.common.username}</Text>
                 <Button onClick={this.linkExample}>FlatList Example</Button>
                 <Button onClick={this.linkMaps}>Maps Example</Button>
                 <Button onClick={this.takePicture}>Camera & Qrcode Example</Button>
@@ -161,15 +189,32 @@ class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // alignItems: 'center',
     },
     icon: {
-        width: 32,
-        height: 32,
+        width: 40,
+        height: 40,
+        borderRadius: 8,
+    },
+    Carousel: {
+        height: 120,
+        backgroundColor: '#fff',
+    },
+    TouchableOpacity: {
+        height: '100%',
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    gridText: {
+        marginTop: 10,
+        color: '#333',
+    },
+    bannerImage: {
+        width: '100%',
+        height: 120,
     },
     headerIcon: {
-        // marginRight: 8,
-        height: 40
+        height: 40,
     },
     picture: {
         width: '100%',
