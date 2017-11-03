@@ -1,20 +1,12 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { connect } from 'react-redux'
-import Icon from 'react-native-vector-icons/Ionicons'
+import { VictoryBar } from 'victory-native'
 
 @connect()
-class Discover extends Component {
+class Echart extends Component {
     static navigationOptions = ({ screenProps }) => ({
-        title: '购物车',
-        tabBarLabel: '购物车',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <Icon
-                name={focused ? 'ios-cart' : 'ios-cart-outline'}
-                size={30}
-                color={focused ? tintColor : 'gray'}
-            />
-        ),
+        title: '折线图',
         headerStyle: {
             backgroundColor: screenProps ? screenProps.themeColor : '#4ECBFC',
         },
@@ -23,7 +15,8 @@ class Discover extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>发现</Text>
+                <Text>折线图</Text>
+                <VictoryBar />
             </View>
         )
     }
@@ -35,10 +28,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    icon: {
-        width: 22,
-        height: 22,
-    },
 })
 
-export default Discover
+export default Echart

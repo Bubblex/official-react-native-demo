@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet, ScrollView, Image, Text, CameraRoll, TouchableOpacity } from 'react-native'
-import { Button, Grid, Carousel } from 'antd-mobile'
+import { Grid, Carousel, List } from 'antd-mobile'
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
-
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
+
+const Item = List.Item
 
 @connect(state => state)
 class Home extends Component {
@@ -46,8 +47,6 @@ class Home extends Component {
     }
 
     componentDidMount = () => {
-        this.choosePicture()
-
         this.props.dispatch({
             type: 'common/fetchBanner',
         })
@@ -57,12 +56,8 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
     }
 
-    fetchTest = () => {
-        this.props.dispatch({ type: 'common/fetchTest' })
-    }
-
-    linkExample = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'Example' }))
+    linkFlatList = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'FlatList' }))
     }
 
     gotoSectionList = () => {
@@ -75,6 +70,10 @@ class Home extends Component {
 
     linkMaps = () => {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Maps' }))
+    }
+
+    linkEchart = () => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: 'Echart' }))
     }
 
     choosePicture = () => {
@@ -95,9 +94,9 @@ class Home extends Component {
     imagePicker = () => {
         const options = {
             title: '选择图片',
-            customButtons: [
-                // { name: 'fb', title: 'Choose Photo from Facebook' },
-            ],
+            // customButtons: [
+            //     { name: 'fb', title: 'Choose Photo from Facebook' },
+            // ],
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -161,26 +160,33 @@ class Home extends Component {
                         )
                     }
                 />
-                <Button onClick={this.gotoDetail}>Goto Detail</Button>
-                <Button onClick={this.gotoSectionList}>SectionList Example</Button>
-                <Button onClick={this.fetchTest}>Fetch Test</Button>
-                <Text>{this.props.common.username}</Text>
-                <Button onClick={this.linkExample}>FlatList Example</Button>
-                <Button onClick={this.linkMaps}>Maps Example</Button>
-                <Button onClick={this.takePicture}>Camera & Qrcode Example</Button>
-                <Text> Scan result：{this.props.camera.qrcodeData}</Text>
-                <Button onClick={this.imagePicker}>Select Picture</Button>
-                <Image
-                    source={this.state.avatarSource}
-                    style={styles.picture}
-                    resizeMode='cover'
-                />
-                <Text>----------------我是分割线-------------------</Text>
-                <Image
-                    style={styles.picture}
-                    source={this.state.photoSource}
-                    resizeMode='cover'
-                />
+                <List renderHeader='常用功能'>
+                    <Item arrow='horizontal' onClick={this.gotoDetail}>Goto screen</Item>
+                    <Item arrow='horizontal' onClick={this.takePicture}>Scan qrcode</Item>
+                    <Text>  Scan result：{this.props.camera.qrcodeData}</Text>
+                    <Item arrow='horizontal' onClick={this.imagePicker}>Image picker</Item>
+                    <Text>  Show image:</Text>
+                    <Image
+                        source={this.state.avatarSource}
+                        style={styles.picture}
+                        resizeMode='cover'
+                    />
+                    <Item arrow='horizontal' onClick={this.choosePicture}>Get first image</Item>
+                    <Text>  Show first image:</Text>
+                    <Image
+                        style={styles.picture}
+                        source={this.state.photoSource}
+                        resizeMode='cover'
+                    />
+                </List>
+
+                <List renderHeader='示例页面'>
+                    <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
+                    <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>
+                    <Item arrow='horizontal' onClick={this.linkMaps}>Maps example</Item>
+                    <Item arrow='horizontal' onClick={this.linkEchart}>Echart example</Item>
+                </List>
+
             </ScrollView>
         )
     }
@@ -227,19 +233,6 @@ const styles = StyleSheet.create({
     },
     item: {
         height: 20,
-    },
-    preview: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
-    capture: {
-        flex: 0,
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        color: '#000',
-        padding: 10,
-        margin: 40,
     },
 })
 

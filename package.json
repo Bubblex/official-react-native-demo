@@ -19,11 +19,13 @@
     "react-native-camera": "^0.10.0",
     "react-native-image-picker": "^0.26.7",
     "react-native-maps": "^0.17.1",
+    "react-native-svg": "^5.4.2",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-persist": "^4.8.3"
+    "redux-persist": "^4.8.3",
+    "victory-native": "^0.15.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

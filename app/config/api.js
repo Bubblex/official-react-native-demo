@@ -7,8 +7,6 @@ const DOMIN = 'https://easy-mock.com/mock/59e06355e2fd4e67507fb1a1/api'
 const COMMON = '/common'
 
 export default {
-    TEST_API: 'http://test4.xiaomaowu.com/api/recommend/data',
-
     // 1.1.1 首页宫格菜单
     BANNER: `${DOMIN}${COMMON}/banner`,
 

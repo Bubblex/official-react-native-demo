@@ -215,10 +215,6 @@ class CarExample extends Component {
                     onSelectMenu={this.onSelectMenu}
                     renderContent={this.renderContent}
                 />
-                <Image
-                    style={styles.image}
-                    resource={require('./car/demo.png')}
-                />
             </View>
         )
     }

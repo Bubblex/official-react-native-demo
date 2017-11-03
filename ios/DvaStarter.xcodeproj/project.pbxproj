@@ -51,6 +51,7 @@
 		FA6ED2F81FA4657800305DC2 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6ED2F71FA4651A00305DC2 /* libRCTCameraRoll.a */; };
 		FA6ED2F91FA465BF00305DC2 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6ED2CB1FA45A0E00305DC2 /* libRCTCamera.a */; };
 		FB71C3F8DB7248FEA4CF6791 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D6D18F5041EA8D073179 /* Ionicons.ttf */; };
+		89DD59108A454A4196970158 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC4BB55C626475298237725 /* libRNSVG.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +353,8 @@
 		F77A7AD03FBB472F948CA42D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		FA6ED2F21FA4651900305DC2 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "/Users/doo/react-native/node_modules/react-native/Libraries/Network/../CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<absolute>"; };
 		FDACDC631AF44D778E88D62A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		3CFF612BFC4F482897B45D30 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; name = "RNSVG.xcodeproj"; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8DC4BB55C626475298237725 /* libRNSVG.a */ = {isa = PBXFileReference; name = "libRNSVG.a"; path = "libRNSVG.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +386,7 @@
 				DB7BA649BB55410FB73B5408 /* libAirMaps.a in Frameworks */,
 				D5624D4FD1D542838DB3A009 /* libRNImagePicker.a in Frameworks */,
 				103919DEFA5D453F9FF49EA9 /* libRNVectorIcons.a in Frameworks */,
+				89DD59108A454A4196970158 /* libRNSVG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +562,7 @@
 				A6FDA9F339E446EC87C13E05 /* AirMaps.xcodeproj */,
 				9FA19118FA7548F5BC5154AE /* RNImagePicker.xcodeproj */,
 				4F30EF8A50E44A4DBCFEFC32 /* RNVectorIcons.xcodeproj */,
+				3CFF612BFC4F482897B45D30 /* RNSVG.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1236,15 +1241,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = DvaStarterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1267,15 +1270,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = DvaStarterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1302,6 +1303,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = DvaStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1328,6 +1330,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = DvaStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1359,14 +1362,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = "DvaStarter-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1399,14 +1400,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-mapslibios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
 				INFOPLIST_FILE = "DvaStarter-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1437,9 +1436,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DvaStarter-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1464,9 +1460,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DvaStarter-tvOSTests";

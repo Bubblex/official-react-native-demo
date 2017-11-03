@@ -13,12 +13,14 @@ import Login from './containers/Login'
 import Home from './containers/Home'
 import Account from './containers/Account'
 import Detail from './containers/Detail'
-import Example from './containers/Example'
 import Car from './containers/Car'
-import TakePicture from './containers/camera/TakePicture'
-import Maps from './containers/maps/Maps'
-import Discover from './containers/Discover'
+import Cart from './containers/Cart'
 import Albums from './containers/Albums'
+
+import Maps from './containers/example/Maps'
+import Echart from './containers/example/Echart'
+import TakePicture from './containers/example/TakePicture'
+import FlatList from './containers/example/FlatList'
 
 import ThemeConfig from './config/theme'
 
@@ -27,7 +29,7 @@ const HomeNavigator = TabNavigator(
     {
         Home: { screen: Home },
         Albums: { screen: Albums },
-        Discover: { screen: Discover },
+        Cart: { screen: Cart },
         Account: { screen: Account },
     },
     {
@@ -51,9 +53,10 @@ const MainNavigator = StackNavigator(
     {
         HomeNavigator: { screen: HomeNavigator },
         Detail: { screen: Detail },
-        Example: { screen: Example },
+        FlatList: { screen: FlatList },
         Maps: { screen: Maps },
         Car: { screen: Car },
+        Echart: { screen: Echart },
         TakePicture: { screen: TakePicture },
     },
     {
@@ -138,7 +141,13 @@ class Router extends PureComponent {
 
         const currentScreen = getCurrentScreen(this.props.router)
         if (currentScreen === 'Example') {
-            console.log('example')
+            console.warn('example')
+        }
+        else if (currentScreen === 'Home') {
+            // console.warn('Home')
+            // this.props.dispatch({
+            //     type: 'common/fetchBanner',
+            // })
         }
 
         return (

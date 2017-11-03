@@ -6,7 +6,6 @@ export default {
     state: {
         fetching: false,
         login: false,
-        username: 'jiangxiao',
 
         indexBanner: {
             banner: [],
@@ -19,10 +18,6 @@ export default {
         },
         loginEnd(state, { payload }) {
             return { ...state, ...payload, fetching: false }
-        },
-
-        changeUsername(state, { username }) {
-            return { ...state, username }
         },
 
         saveBanner(state, { indexBanner }) {
@@ -42,18 +37,6 @@ export default {
                 )
             }
             yield put(createAction('loginEnd')({ login }))
-        },
-
-        *fetchTest({ payload }, { call, put }) {
-            const { response: { message } } = yield call(
-                authService.testFetch,
-                payload,
-            )
-
-            yield put({
-                type: 'changeUsername',
-                username: message,
-            })
         },
 
         // 1.1.1 首页宫格菜单

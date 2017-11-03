@@ -7,11 +7,6 @@ export const login = async () => {
     return true
 }
 
-export async function testFetch(params) {
-    return request(API.TEST_API, {
-        body: JSON.stringify(params),
-    })
-}
 
 // 1.1.1 首页宫格菜单
 export async function fetchBanner(params) {
