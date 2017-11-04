@@ -26,6 +26,8 @@
 
  icon图标参考 [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 
+ 图表参考[victory-native](https://formidable.com/open-source/victory/docs/native/)
+
 
 ### 常见问题
 

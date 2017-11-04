@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { StyleSheet, ScrollView, Image, Text, CameraRoll, TouchableOpacity } from 'react-native'
+import { StyleSheet, ScrollView, Image, Text, CameraRoll, TouchableOpacity, View } from 'react-native'
 import { Grid, Carousel, List } from 'antd-mobile'
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
+import { iconsMap } from '../utils/icon'
+
 
 const Item = List.Item
 
@@ -130,8 +132,39 @@ class Home extends Component {
         })
     }
 
+    handleCilckGrid = (val) => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: val.screen }))
+    }
+
     render() {
         const { common: { indexBanner } } = this.props
+
+        const gridData = [
+            {
+                icon: iconsMap['ios-list-box'],
+                text: '列表',
+                index: 0,
+                screen: 'FlatList',
+            },
+            {
+                icon: iconsMap['ios-apps'],
+                text: '筛选列表',
+                index: 1,
+                screen: 'Car',
+            },
+            {
+                icon: iconsMap['ios-navigate'],
+                text: '谷歌地图',
+                index: 2,
+                screen: 'Maps',
+            },
+            {
+                icon: iconsMap['ios-podium'],
+                text: '统计图',
+                index: 3,
+                screen: 'Echart',
+            },
+        ]
 
         return (
             <ScrollView style={styles.container}>
@@ -150,6 +183,19 @@ class Home extends Component {
                 </Carousel>
                 <Grid
                     hasLine={false}
+                    data={gridData}
+                    onClick={(val) => { this.handleCilckGrid(val) }}
+                    renderItem={
+                        dataItem => (
+                            <View style={styles.TouchableOpacity}>
+                                <Image source={dataItem.icon} style={styles.iconCustom} />
+                                <Text style={styles.gridText}>{dataItem.text}</Text>
+                            </View>
+                        )
+                    }
+                />
+                <Grid
+                    hasLine={false}
                     data={indexBanner.grid}
                     renderItem={
                         dataItem => (
@@ -160,6 +206,12 @@ class Home extends Component {
                         )
                     }
                 />
+                <List renderHeader='示例页面'>
+                    <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
+                    <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>
+                    <Item arrow='horizontal' onClick={this.linkMaps}>Maps example</Item>
+                    <Item arrow='horizontal' onClick={this.linkEchart}>Echart example</Item>
+                </List>
                 <List renderHeader='常用功能'>
                     <Item arrow='horizontal' onClick={this.gotoDetail}>Goto screen</Item>
                     <Item arrow='horizontal' onClick={this.takePicture}>Scan qrcode</Item>
@@ -179,14 +231,6 @@ class Home extends Component {
                         resizeMode='cover'
                     />
                 </List>
-
-                <List renderHeader='示例页面'>
-                    <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
-                    <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>
-                    <Item arrow='horizontal' onClick={this.linkMaps}>Maps example</Item>
-                    <Item arrow='horizontal' onClick={this.linkEchart}>Echart example</Item>
-                </List>
-
             </ScrollView>
         )
     }
@@ -200,6 +244,10 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 8,
+    },
+    iconCustom: {
+        width: 30,
+        height: 30,
     },
     Carousel: {
         height: 120,
