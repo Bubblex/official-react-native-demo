@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, Image, Dimensions, StyleSheet, ScrollView, Animated } from 'react-native'
+import { View, Text, Image, Dimensions, StyleSheet, ScrollView, Animated, Platform } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../../utils'
 
@@ -18,12 +18,14 @@ class AnimatedScreen extends Component {
     render() {
         const colorInterpolated = this.state.scrollY.interpolate({
             inputRange: [0, 140],
-            outputRange: ['rgba(80,218,185,0)', 'rgba(80,218,185,0.6)'],
+            outputRange: ['rgba(80,218,185,0)', 'rgba(80,218,185,0.8)'],
             extrapolate: 'clamp',
         })
         const headerCount = (
             <Animated.View style={[styles.animatedView, { backgroundColor: colorInterpolated }]} >
                 <Ionicons.Button
+                    color='#fff'
+                    borderRadius={20}
                     name='ios-contact-outline'
                     backgroundColor='transparent'
                     style={styles.ioniconsButton}
@@ -33,7 +35,7 @@ class AnimatedScreen extends Component {
                 >
                     <Text
                         numberOfLines={1}
-                        style={{ color: '#fff', paddingRight: 18, fontSize: 15 }}
+                        style={{paddingRight: 18, fontSize: 15 }}
                     >User: 十一月</Text>
                 </Ionicons.Button>
             </Animated.View>
@@ -88,6 +90,35 @@ class AnimatedScreen extends Component {
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
                 </ScrollView>
             </View>
         )
@@ -98,10 +129,9 @@ const styles = StyleSheet.create({
     ioniconsButton: {
         width: 150,
         height: 30,
-        marginTop: 7,
+        marginTop: Platform.OS === 'ios' ? 10 : 7,
         marginLeft: 15,
         borderWidth: 0.5,
-        borderRadius: 20,
         backgroundColor: 'rgba(0,0,0,0.5)',
         borderColor: 'rgba(225,225,225,0.6)',
     },
