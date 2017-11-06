@@ -8,7 +8,6 @@ import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
 import { iconsMap } from '../utils/icon'
 
-
 const Item = List.Item
 
 @connect(state => state)
@@ -164,6 +163,12 @@ class Home extends Component {
                 index: 3,
                 screen: 'Echart',
             },
+            {
+                icon: iconsMap['ios-color-wand'],
+                text: '动画',
+                index: 4,
+                screen: 'Animated',
+            },
         ]
 
         return (
@@ -194,18 +199,22 @@ class Home extends Component {
                         )
                     }
                 />
-                <Grid
-                    hasLine={false}
-                    data={indexBanner.grid}
-                    renderItem={
-                        dataItem => (
-                            <TouchableOpacity style={styles.TouchableOpacity}>
-                                <Image source={{ uri: dataItem.icon }} style={styles.icon} />
-                                <Text style={styles.gridText}>{dataItem.text}</Text>
-                            </TouchableOpacity>
-                        )
-                    }
-                />
+                {
+                    false
+                    &&
+                    <Grid
+                        hasLine={false}
+                        data={indexBanner.grid}
+                        renderItem={
+                            dataItem => (
+                                <TouchableOpacity style={styles.TouchableOpacity}>
+                                    <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+                                    <Text style={styles.gridText}>{dataItem.text}</Text>
+                                </TouchableOpacity>
+                            )
+                        }
+                    />
+                }
                 <List renderHeader='示例页面'>
                     <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
                     <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>

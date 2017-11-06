@@ -16,6 +16,7 @@ import Detail from './containers/Detail'
 import Car from './containers/Car'
 import Cart from './containers/Cart'
 import Albums from './containers/Albums'
+import AnimatedPage from './containers/example/Animated'
 
 import Maps from './containers/example/Maps'
 import Echart from './containers/example/Echart'
@@ -68,6 +69,7 @@ const AppNavigator = StackNavigator(
     {
         Main: { screen: MainNavigator },
         Login: { screen: Login },
+        Animated: { screen: AnimatedPage },
     },
     {
         headerMode: 'none',
