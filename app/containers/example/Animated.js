@@ -1,11 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, Image, Dimensions, StyleSheet, ScrollView, Animated, Platform } from 'react-native'
+import I18n from 'react-native-i18n'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../../utils'
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = 230
+
+I18n.defaultLocale = 'zh-CN'
+I18n.fallbacks = true
+I18n.translations = {
+    en: {
+        greeting: 'Hi!',
+    },
+    fr: {
+        greeting: 'Bonjour!',
+    },
+    'zh-CN': {
+        greeting: '你好!',
+    },
+}
 
 @connect(state => state)
 class AnimatedScreen extends Component {
@@ -35,7 +50,7 @@ class AnimatedScreen extends Component {
                 >
                     <Text
                         numberOfLines={1}
-                        style={{paddingRight: 18, fontSize: 15 }}
+                        style={{ paddingRight: 18, fontSize: 15 }}
                     >User: 十一月</Text>
                 </Ionicons.Button>
             </Animated.View>
@@ -53,6 +68,7 @@ class AnimatedScreen extends Component {
                         source={require('../../images/avatar.jpg')}
                         style={{ width: WIDTH, height: HEIGHT }}
                     />
+                    <Text>{I18n.t('greeting')}</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
