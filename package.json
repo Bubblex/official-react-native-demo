@@ -16,6 +16,7 @@
     "rc-form": "^1.4.8",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.47.1",
+    "react-native-baidu-map": "^0.6.0",
     "react-native-camera": "^0.10.0",
     "react-native-i18n": "^2.0.9",
     "react-native-image-picker": "^0.26.7",

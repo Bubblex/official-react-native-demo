@@ -19,6 +19,7 @@ import Albums from './containers/Albums'
 import AnimatedPage from './containers/example/Animated'
 
 import Maps from './containers/example/Maps'
+import BaiduMaps from './containers/example/Baidu'
 import Echart from './containers/example/Echart'
 import TakePicture from './containers/example/TakePicture'
 import FlatList from './containers/example/FlatList'
@@ -56,6 +57,7 @@ const MainNavigator = StackNavigator(
         Detail: { screen: Detail },
         FlatList: { screen: FlatList },
         Maps: { screen: Maps },
+        BaiduMaps: { screen: BaiduMaps },
         Car: { screen: Car },
         Echart: { screen: Echart },
         TakePicture: { screen: TakePicture },

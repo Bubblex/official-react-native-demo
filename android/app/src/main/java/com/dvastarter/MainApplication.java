@@ -3,6 +3,7 @@ package com.dvastarter;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.lovebing.reactnative.baidumap.BaiduMapPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new BaiduMapPackage(getApplicationContext()),
             new RNI18nPackage(),
             new SvgPackage(),
             new VectorIconsPackage(),

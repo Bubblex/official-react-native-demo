@@ -152,7 +152,7 @@ class Home extends Component {
                 screen: 'Car',
             },
             {
-                icon: iconsMap['ios-navigate'],
+                icon: iconsMap['logo-google'],
                 text: '谷歌地图',
                 index: 2,
                 screen: 'Maps',
@@ -168,6 +168,12 @@ class Home extends Component {
                 text: '动画',
                 index: 4,
                 screen: 'Animated',
+            },
+            {
+                icon: iconsMap['ios-navigate'],
+                text: '百度地图',
+                index: 2,
+                screen: 'BaiduMaps',
             },
         ]
 
