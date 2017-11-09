@@ -9,15 +9,7 @@ class Maps extends Component {
         title: 'Maps',
     }
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-        }
-    }
-
     render() {
-        console.log('Platform')
         console.log(Platform)
         const MapStyle = []
         return (
