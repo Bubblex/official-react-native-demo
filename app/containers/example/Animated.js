@@ -1,26 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, Image, Dimensions, StyleSheet, ScrollView, Animated, Platform } from 'react-native'
-import I18n from 'react-native-i18n'
+import { AsyncStorage, View, Text, Image, Dimensions, StyleSheet, ScrollView, Animated, Platform } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../../utils'
+import I18n, { changeLocale } from '../../utils/i18n'
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = 230
-
-I18n.defaultLocale = 'zh-CN'
-I18n.fallbacks = true
-I18n.translations = {
-    en: {
-        greeting: 'Hi!',
-    },
-    fr: {
-        greeting: 'Bonjour!',
-    },
-    'zh-CN': {
-        greeting: '你好!',
-    },
-}
 
 @connect(state => state)
 class AnimatedScreen extends Component {
@@ -28,7 +14,18 @@ class AnimatedScreen extends Component {
         super(props)
         this.state = {
             scrollY: new Animated.Value(0),
+            i18n: 'zh-CH',
         }
+    }
+    handleChangeI18n = (locale) => {
+        AsyncStorage.setItem('locale', locale, (errs) => {
+            if (!errs) {
+                changeLocale(locale)
+                this.setState({
+                    i18n: locale,
+                })
+            }
+        })
     }
     render() {
         const colorInterpolated = this.state.scrollY.interpolate({
@@ -69,6 +66,8 @@ class AnimatedScreen extends Component {
                         style={{ width: WIDTH, height: HEIGHT }}
                     />
                     <Text>{I18n.t('greeting')}</Text>
+                    <Text onPress={() => { this.handleChangeI18n('fr') }}>切换语言fr</Text>
+                    <Text onPress={() => { this.handleChangeI18n('en') }}>切换语言en</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>

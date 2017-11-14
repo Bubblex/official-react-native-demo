@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
 import { iconsMap } from '../utils/icon'
+import I18n from '../utils/i18n'
 
 const Item = List.Item
 
@@ -246,6 +247,7 @@ class Home extends Component {
                         resizeMode='cover'
                     />
                 </List>
+                <Text>{I18n.t('greeting')}</Text>
             </ScrollView>
         )
     }
