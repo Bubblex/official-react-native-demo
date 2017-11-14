@@ -169,6 +169,12 @@ class Home extends Component {
                 index: 4,
                 screen: 'Animated',
             },
+            {
+                icon: iconsMap['ios-navigate'],
+                text: '高德地图',
+                index: 5,
+                screen: 'Amap',
+            },
         ]
 
         return (

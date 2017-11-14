@@ -19,6 +19,7 @@ import Albums from './containers/Albums'
 import AnimatedPage from './containers/example/Animated'
 
 import Maps from './containers/example/Maps'
+import Amap from './containers/example/Amap'
 import Echart from './containers/example/Echart'
 import TakePicture from './containers/example/TakePicture'
 import FlatList from './containers/example/FlatList'
@@ -59,6 +60,7 @@ const MainNavigator = StackNavigator(
         Car: { screen: Car },
         Echart: { screen: Echart },
         TakePicture: { screen: TakePicture },
+        Amap: { screen: Amap },
     },
     {
         headerMode: 'float',
