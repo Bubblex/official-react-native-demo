@@ -23,6 +23,7 @@ import Amap from './containers/example/Amap'
 import Echart from './containers/example/Echart'
 import TakePicture from './containers/example/TakePicture'
 import FlatList from './containers/example/FlatList'
+import Interaction from './containers/example/Interaction'
 
 import ThemeConfig from './config/theme'
 
@@ -61,6 +62,7 @@ const MainNavigator = StackNavigator(
         Echart: { screen: Echart },
         TakePicture: { screen: TakePicture },
         Amap: { screen: Amap },
+        Interaction: { screen: Interaction },
     },
     {
         headerMode: 'float',

@@ -176,6 +176,12 @@ class Home extends Component {
                 index: 5,
                 screen: 'Amap',
             },
+            {
+                icon: iconsMap['ios-flower'],
+                text: 'Interaction',
+                index: 6,
+                screen: 'Interaction',
+            },
         ]
 
         return (
