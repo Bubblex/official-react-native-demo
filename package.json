@@ -20,6 +20,7 @@
     "react-native-camera": "^0.10.0",
     "react-native-i18n": "^2.0.9",
     "react-native-image-picker": "^0.26.7",
+    "react-native-interactable": "^0.1.7",
     "react-native-maps": "^0.17.1",
     "react-native-svg": "^5.4.2",
     "react-native-vector-icons": "^4.4.2",

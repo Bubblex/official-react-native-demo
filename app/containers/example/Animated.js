@@ -70,70 +70,7 @@ class AnimatedScreen extends Component {
                     <Text onPress={() => { this.handleChangeI18n('fr') }}>切换语言fr</Text>
                     <Text onPress={() => { this.handleChangeI18n('en') }}>切换语言en</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
-                    <Text>人生不会总是如意 ，你必须坚持努力</Text>
+                    <Text style={{ height: 900 }}>人生不会总是如意 ，你必须坚持努力</Text>
                     <Text>人生不会总是如意 ，你必须坚持努力</Text>
                 </ScrollView>
             </View>

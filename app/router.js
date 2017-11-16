@@ -66,6 +66,12 @@ const MainNavigator = StackNavigator(
     },
     {
         headerMode: 'float',
+        navigationOptions: {
+            headerTintColor: '#333',
+            headerStyle: {
+                backgroundColor: ThemeConfig.brandPrimary,
+            },
+        },
     },
 )
 

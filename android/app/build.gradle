@@ -139,6 +139,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-interactable')
     compile project(':react-native-svg')
     compile project(':react-native-i18n')
     compile project(':react-native-image-picker')
