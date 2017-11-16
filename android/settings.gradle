@@ -1,6 +1,4 @@
 rootProject.name = 'DvaStarter'
-include ':react-native-amap3d'
-project(':react-native-amap3d').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-amap3d/android')
 include ':react-native-i18n'
 project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')
 include ':react-native-svg'
