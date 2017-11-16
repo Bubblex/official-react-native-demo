@@ -39,6 +39,7 @@ class AnimatedScreen extends Component {
                     color='#fff'
                     borderRadius={20}
                     name='ios-contact-outline'
+                    underlayColor='transparent'
                     backgroundColor='transparent'
                     style={styles.ioniconsButton}
                     onPress={() => {
