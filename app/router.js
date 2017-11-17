@@ -24,6 +24,7 @@ import Echart from './containers/example/Echart'
 import TakePicture from './containers/example/TakePicture'
 import FlatList from './containers/example/FlatList'
 import Interaction from './containers/example/Interaction'
+import Flexbox from './containers/example/Flexbox'
 
 import ThemeConfig from './config/theme'
 
@@ -63,6 +64,7 @@ const MainNavigator = StackNavigator(
         TakePicture: { screen: TakePicture },
         Amap: { screen: Amap },
         Interaction: { screen: Interaction },
+        Flexbox: { screen: Flexbox },
     },
     {
         headerMode: 'float',

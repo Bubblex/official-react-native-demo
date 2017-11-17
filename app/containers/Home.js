@@ -182,6 +182,12 @@ class Home extends Component {
                 index: 6,
                 screen: 'Interaction',
             },
+            {
+                icon: iconsMap['ios-grid'],
+                text: 'Flexbox',
+                index: 7,
+                screen: 'Flexbox',
+            },
         ]
 
         return (

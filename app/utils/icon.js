@@ -14,6 +14,7 @@ const icons = {
     'ios-color-wand': [30, iconColor],
     'ios-apps': [30, iconColor],
     'ios-flower': [30, iconColor],
+    'ios-grid': [30, iconColor],
     'ios-search': [30],
     'ios-settings-outline': [30],
     'ios-settings': [30],
