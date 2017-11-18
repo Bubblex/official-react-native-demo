@@ -54,30 +54,6 @@ class Home extends Component {
         })
     }
 
-    gotoDetail = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
-    }
-
-    linkFlatList = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'FlatList' }))
-    }
-
-    gotoSectionList = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'Car' }))
-    }
-
-    takePicture = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'TakePicture' }))
-    }
-
-    linkMaps = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'Maps' }))
-    }
-
-    linkEchart = () => {
-        this.props.dispatch(NavigationActions.navigate({ routeName: 'Echart' }))
-    }
-
     handleLink = (screen) => {
         this.props.dispatch(NavigationActions.navigate({ routeName: screen }))
     }
@@ -239,17 +215,17 @@ class Home extends Component {
                     />
                 }
                 <List renderHeader='示例组件'>
-                    <Item arrow='horizontal' onClick={() => {this.handleLink('Swiper')}}>Swiper example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Swiper') }}>Swiper example</Item>
                 </List>
                 <List renderHeader='示例页面'>
-                    <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
-                    <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>
-                    <Item arrow='horizontal' onClick={this.linkMaps}>Maps example</Item>
-                    <Item arrow='horizontal' onClick={this.linkEchart}>Echart example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Car') }}>SectionList example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('FlatList') }}>FlatList example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Maps') }}>Maps example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Echart') }}>Echart example</Item>
                 </List>
                 <List renderHeader='常用功能'>
-                    <Item arrow='horizontal' onClick={this.gotoDetail}>Goto screen</Item>
-                    <Item arrow='horizontal' onClick={this.takePicture}>Scan qrcode</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Detail') }}>Goto screen</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('TakePicture') }}>Scan qrcode</Item>
                     <Text>  Scan result：{this.props.camera.qrcodeData}</Text>
                     <Item arrow='horizontal' onClick={this.imagePicker}>Image picker</Item>
                     <Text>  Show image:</Text>

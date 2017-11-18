@@ -41,7 +41,6 @@ class SwiperExample extends Component {
                         <Text style={styles.text}>And simple</Text>
                     </View>
                 </Swiper>
-                
             </ScrollView>
         )
     }

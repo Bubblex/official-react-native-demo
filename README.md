@@ -29,7 +29,11 @@
  图表参考[victory-native](https://formidable.com/open-source/victory/docs/native/)
 
 
-### 常见问题
+轮播图[react-native-swiper](https://github.com/leecade/react-native-swiper)
+
+毛玻璃[react-native-blur](https://github.com/react-native-fellowship/react-native-blur)
+
+#### 常见问题
 
 
 [如何调试?](https://github.com/crazycodeboy/RNStudyNotes/blob/master/React%20Native%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%BF%83%E5%BE%97/React%20Native%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%BF%83%E5%BE%97.md)
