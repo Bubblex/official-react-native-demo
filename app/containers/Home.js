@@ -78,6 +78,10 @@ class Home extends Component {
         this.props.dispatch(NavigationActions.navigate({ routeName: 'Echart' }))
     }
 
+    handleLink = (screen) => {
+        this.props.dispatch(NavigationActions.navigate({ routeName: screen }))
+    }
+
     choosePicture = () => {
         CameraRoll.getPhotos({ first: 1 }).done((files) => {
             const edges = files.edges
@@ -234,6 +238,9 @@ class Home extends Component {
                         }
                     />
                 }
+                <List renderHeader='示例组件'>
+                    <Item arrow='horizontal' onClick={() => {this.handleLink('Swiper')}}>Swiper example</Item>
+                </List>
                 <List renderHeader='示例页面'>
                     <Item arrow='horizontal' onClick={this.gotoSectionList}>SectionList example</Item>
                     <Item arrow='horizontal' onClick={this.linkFlatList}>FlatList example</Item>

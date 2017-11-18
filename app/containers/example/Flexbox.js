@@ -3,7 +3,7 @@ import { ScrollView, View, Text, StyleSheet, PixelRatio } from 'react-native'
 
 class Flexbox extends Component {
     static navigationOptions = () => ({
-        title: 'Layout示例',
+        title: 'Flexbox',
     })
     render() {
         const FlexItemPowderblue = <View style={{ width: 50, height: 50, backgroundColor: 'powderblue' }} />

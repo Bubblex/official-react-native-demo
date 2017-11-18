@@ -25,6 +25,7 @@ import TakePicture from './containers/example/TakePicture'
 import FlatList from './containers/example/FlatList'
 import Interaction from './containers/example/Interaction'
 import Flexbox from './containers/example/Flexbox'
+import Swiper from './containers/custom/Swiper'
 
 import ThemeConfig from './config/theme'
 
@@ -65,6 +66,7 @@ const MainNavigator = StackNavigator(
         Amap: { screen: Amap },
         Interaction: { screen: Interaction },
         Flexbox: { screen: Flexbox },
+        Swiper: { screen: Swiper },
     },
     {
         headerMode: 'float',
