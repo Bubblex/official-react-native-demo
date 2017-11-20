@@ -28,10 +28,14 @@
 
  图表参考[victory-native](https://formidable.com/open-source/victory/docs/native/)
 
+#### 第三方组件汇总
+[http://www.jianshu.com/p/d9cd9a868764](http://www.jianshu.com/p/d9cd9a868764)
 
 轮播图[react-native-swiper](https://github.com/leecade/react-native-swiper)
 
 毛玻璃[react-native-blur](https://github.com/react-native-fellowship/react-native-blur)
+
+下拉放大[react-native-parallax-view](https://github.com/lelandrichardson/react-native-parallax-view)
 
 #### 常见问题
 
