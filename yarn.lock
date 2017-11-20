@@ -4033,6 +4033,10 @@ raf@^3.1.0, raf@^3.3.0:
   dependencies:
     performance-now "^2.1.0"
 
+ramda@^0.24.1:
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
+
 random-bytes@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/random-bytes/-/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
@@ -4315,6 +4319,13 @@ react-native-maps@^0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.1.tgz#ab2236341fd984dac8864202ae55331bc262f60c"
 
+react-native-material-kit@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-material-kit/-/react-native-material-kit-0.5.1.tgz#fc05605273bfa0d145c6e36cca755cbde5b8db3a"
+  dependencies:
+    prop-types "^15.5.10"
+    ramda "^0.24.1"
+
 react-native-menu@~0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/react-native-menu/-/react-native-menu-0.21.0.tgz#ebc647862eb80ed00e2289397bf8b634b09b1e8b"
@@ -4340,6 +4351,12 @@ react-native-swipeout@~2.1.1:
   resolved "https://registry.yarnpkg.com/react-native-swipeout/-/react-native-swipeout-2.1.5.tgz#eb3a7ac3cf9418441b84a3a6fa7aa64b701598a4"
   dependencies:
     react-tween-state "^0.1.5"
+
+react-native-swiper@^1.5.13:
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.13.tgz#fa695cd4ab77b9a9df2d2bfee38ea7274dd07a2e"
+  dependencies:
+    prop-types "^15.5.10"
 
 react-native-tab-view@^0.0.67:
   version "0.0.67"

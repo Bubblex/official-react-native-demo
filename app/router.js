@@ -26,6 +26,7 @@ import FlatList from './containers/example/FlatList'
 import Interaction from './containers/example/Interaction'
 import Flexbox from './containers/example/Flexbox'
 import Swiper from './containers/custom/Swiper'
+import Materialkit from './containers/custom/Materialkit'
 
 import ThemeConfig from './config/theme'
 
@@ -67,6 +68,7 @@ const MainNavigator = StackNavigator(
         Interaction: { screen: Interaction },
         Flexbox: { screen: Flexbox },
         Swiper: { screen: Swiper },
+        Materialkit: { screen: Materialkit },
     },
     {
         headerMode: 'float',
