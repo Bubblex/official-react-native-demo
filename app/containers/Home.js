@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Markdown from 'react-native-simple-markdown'
+import HTMLView from 'react-native-htmlview';
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
 import { iconsMap } from '../utils/icon'
@@ -187,6 +188,8 @@ class Home extends Component {
             },
         }
 
+        const htmlContent = `<div><p>00000</p><p><a href="http://jsdf.co">&hearts; nice job!</a></p><h1>h1111</h1></div>`;
+
         return (
             <ScrollView style={styles.container}>
                 <Carousel
@@ -279,6 +282,10 @@ class Home extends Component {
 
                     [![Another one from Vimeo](https://i.vimeocdn.com/video/399486266_640.jpg)](https://vimeo.com/57580368)
                 </Markdown>
+                <HTMLView
+                    value={htmlContent}
+                    stylesheet={styles}
+                />
             </ScrollView>
         )
     }
@@ -329,6 +336,14 @@ const styles = StyleSheet.create({
     },
     item: {
         height: 20,
+    },
+    a: {
+        fontWeight: '300',
+        color: '#FF3366', // make links coloured pink
+    },
+    h1: {
+        color: 'red',
+        fontSize: 20,
     },
 })
 

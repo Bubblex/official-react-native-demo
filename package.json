@@ -21,6 +21,7 @@
     "react-native-amap3d": "^0.7.3",
     "react-native-camera": "^0.10.0",
     "react-native-charts-wrapper": "0.3.0",
+    "react-native-htmlview": "^0.12.1",
     "react-native-i18n": "^2.0.9",
     "react-native-image-picker": "^0.26.7",
     "react-native-interactable": "^0.1.7",
