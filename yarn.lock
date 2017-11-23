@@ -3370,7 +3370,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4341,6 +4341,13 @@ react-native-scrollable-tab-view@^0.7.2:
     react-static-container "^1.0.1"
     react-timer-mixin "^0.13.3"
 
+react-native-simple-markdown@^1.0.60-rc.3:
+  version "1.0.60-rc.3"
+  resolved "https://registry.yarnpkg.com/react-native-simple-markdown/-/react-native-simple-markdown-1.0.60-rc.3.tgz#80c772b22eb32fb43b9f23620f6c876aef06d721"
+  dependencies:
+    lodash "^4.15.0"
+    simple-markdown "git://github.com/CharlesMangwa/simple-markdown.git"
+
 react-native-svg@^5.4.2:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-5.5.1.tgz#633d882077f048f05c721ebb793cd073e846ba1f"
@@ -4987,6 +4994,10 @@ shellwords@^0.1.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+"simple-markdown@git://github.com/CharlesMangwa/simple-markdown.git":
+  version "0.1.1"
+  resolved "git://github.com/CharlesMangwa/simple-markdown.git#33d963c760b8196bee01b1a5ba9974bc7f669af1"
 
 simple-plist@^0.2.1:
   version "0.2.1"

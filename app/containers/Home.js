@@ -4,6 +4,7 @@ import { Grid, Carousel, List } from 'antd-mobile'
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
+import Markdown from 'react-native-simple-markdown'
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
 import { iconsMap } from '../utils/icon'
@@ -170,6 +171,22 @@ class Home extends Component {
             },
         ]
 
+        const markdownStyles = {
+            heading1: {
+                fontSize: 24,
+                color: 'purple',
+            },
+            link: {
+                color: 'pink',
+            },
+            mailTo: {
+                color: 'orange',
+            },
+            text: {
+                color: '#555555',
+            },
+        }
+
         return (
             <ScrollView style={styles.container}>
                 <Carousel
@@ -245,6 +262,23 @@ class Home extends Component {
                     />
                 </List>
                 <Text>{I18n.t('greeting')}</Text>
+                <Markdown styles={markdownStyles}>
+                    #Markdown in react-native is so cool! {'\n\n'}
+
+                    You can **emphasize** what you want, or just _suggest it_ 😏…{'\n'}
+
+                    You can even [**link your website**](http://carlito.ninja) or if you prefer: [email somebody](mailto:email@somebody.com){'\n'}
+
+                    Spice it up with some GIFs 💃:
+
+                    ![Some GIF](https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif){'\n'}
+
+                    And even add a cool video 😎!{'\n'}
+
+                    [![A cool video from YT](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](http://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+                    [![Another one from Vimeo](https://i.vimeocdn.com/video/399486266_640.jpg)](https://vimeo.com/57580368)
+                </Markdown>
             </ScrollView>
         )
     }

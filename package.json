@@ -26,6 +26,7 @@
     "react-native-interactable": "^0.1.7",
     "react-native-maps": "^0.17.1",
     "react-native-material-kit": "^0.5.1",
+    "react-native-simple-markdown": "^1.0.60-rc.3",
     "react-native-svg": "^5.4.2",
     "react-native-swiper": "^1.5.13",
     "react-native-vector-icons": "^4.4.2",
