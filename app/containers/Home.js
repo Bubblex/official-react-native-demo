@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Markdown from 'react-native-simple-markdown'
-import HTMLView from 'react-native-htmlview';
+import HTMLView from 'react-native-htmlview'
 import { NavigationActions } from '../utils'
 import themeConfig from '../config/theme'
 import { iconsMap } from '../utils/icon'
@@ -188,7 +188,9 @@ class Home extends Component {
             },
         }
 
-        const htmlContent = `<div><p>00000</p><p><a href="http://jsdf.co">&hearts; nice job!</a></p><h1>h1111</h1></div>`;
+        const htmlContent = '<div><p>00000</p><p>' +
+        '<a href="http://jsdf.co">&hearts; nice job!</a></p>' +
+        '<h1>h1111</h1></div>'
 
         return (
             <ScrollView style={styles.container}>
@@ -266,6 +268,7 @@ class Home extends Component {
                 </List>
                 <Text>{I18n.t('greeting')}</Text>
                 <Markdown styles={markdownStyles}>
+                    #heading text{'\n\n'}
                     #Markdown in react-native is so cool! {'\n\n'}
 
                     You can **emphasize** what you want, or just _suggest it_ 😏…{'\n'}
@@ -280,7 +283,16 @@ class Home extends Component {
 
                     [![A cool video from YT](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](http://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-                    [![Another one from Vimeo](https://i.vimeocdn.com/video/399486266_640.jpg)](https://vimeo.com/57580368)
+                    [![Another one from Vimeo](https://i.vimeocdn.com/video/399486266_640.jpg)](https://vimeo.com/57580368){'\n'}
+                    #Markdown in react-native is so cool! {'\n\n'}
+                    **strong text**{'\n'}
+                    _emphasized text_{'\n'}
+                    [enter link description here](http://carlito.ninja)
+                    ![enter image description here](https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif){'\n'}
+                    -list text here{'\n'}
+                    1.list text here{'\n'}
+                    2.list text here{'\n'}
+
                 </Markdown>
                 <HTMLView
                     value={htmlContent}
