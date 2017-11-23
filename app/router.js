@@ -27,6 +27,7 @@ import Interaction from './containers/example/Interaction'
 import Flexbox from './containers/example/Flexbox'
 import Swiper from './containers/custom/Swiper'
 import Materialkit from './containers/custom/Materialkit'
+import Kline from './containers/custom/Kline'
 
 import ThemeConfig from './config/theme'
 
@@ -69,6 +70,7 @@ const MainNavigator = StackNavigator(
         Flexbox: { screen: Flexbox },
         Swiper: { screen: Swiper },
         Materialkit: { screen: Materialkit },
+        Kline: { screen: Kline },
     },
     {
         headerMode: 'float',

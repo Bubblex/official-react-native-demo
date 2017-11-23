@@ -217,6 +217,7 @@ class Home extends Component {
                 <List renderHeader='示例组件'>
                     <Item arrow='horizontal' onClick={() => { this.handleLink('Swiper') }}>Swiper example</Item>
                     <Item arrow='horizontal' onClick={() => { this.handleLink('Materialkit') }}>Materialkit example</Item>
+                    <Item arrow='horizontal' onClick={() => { this.handleLink('Kline') }}>Kline example</Item>
                 </List>
                 <List renderHeader='示例页面'>
                     <Item arrow='horizontal' onClick={() => { this.handleLink('Car') }}>SectionList example</Item>
