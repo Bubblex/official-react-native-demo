@@ -4368,10 +4368,6 @@ react-native-image-picker@^0.26.7:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.7.tgz#ad2ee957f7f6cc01396893ea03d84cb2adb2e376"
 
-react-native-interactable@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/react-native-interactable/-/react-native-interactable-0.1.7.tgz#c785688ea6ec7c4ef443e715d145c6862ae210da"
-
 react-native-maps@^0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.1.tgz#ab2236341fd984dac8864202ae55331bc262f60c"

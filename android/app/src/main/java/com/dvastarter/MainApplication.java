@@ -3,7 +3,6 @@ package com.dvastarter;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.github.wuxudong.rncharts.MPAndroidChartPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.wix.interactable.Interactable;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
@@ -32,7 +31,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new MPAndroidChartPackage(),
             new ReactMaterialKitPackage(),
             new Interactable(),
             new RNI18nPackage(),
