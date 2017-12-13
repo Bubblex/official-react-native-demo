@@ -37,7 +37,11 @@
 
 下拉放大[react-native-parallax-view](https://github.com/lelandrichardson/react-native-parallax-view)
 
-#### 常见问题
+强制横屏[react-native-orientation](https://github.com/yamill/react-native-orientation)
 
+拖动排序列表[react-native-sortable-list](https://github.com/gitim/react-native-sortable-list#demo)
+
+
+#### 常见问题
 
 [如何调试?](https://github.com/crazycodeboy/RNStudyNotes/blob/master/React%20Native%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%BF%83%E5%BE%97/React%20Native%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%BF%83%E5%BE%97.md)
